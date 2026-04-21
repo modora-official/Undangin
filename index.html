@@ -2,490 +2,409 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Oci & Dede</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <style>
-        /* --- GLOBAL RESETS & VARIABLES --- */
-        :root {
-            --bg-dark: #050505;
-            --text-light: #e0e0e0;
-            --gold-gradient: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Undangin | Jasa Undangan Digital Profesional 3D HD</title>
+    <meta name="description" content="Eksklusif dan tanpa batas. Jasa pembuatan website undangan digital profesional dengan desain UI/UX 3D HD untuk segala jenis acara.">
+    <meta name="keywords" content="undangan digital, website undangan, jasa undangan profesional, UI/UX 3D, desain elegan, Undangin">
+    <meta name="author" content="Undangin">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%23050505'/><path d='M30 25 L70 25 L70 75 L30 75 Z' fill='none' stroke='%23C5A059' stroke-width='4'/><text x='50' y='65' font-family='serif' font-size='40' font-weight='bold' fill='%23C5A059' text-anchor='middle'>U</text></svg>" type="image/svg+xml">
 
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@200;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= RESET & ANTI-OUTLINE ================= */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             outline: none !important;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
+        :root {
+            --bg-ultra-dark: #020202;
+            --surface-dark: #0a0a0a;
+            --gold-primary: #C5A059;
+            --gold-light: #F4DE95;
+            --text-main: #EFEFEF;
+            --text-dim: #7A7A7A;
+            --warm-glow: rgba(197, 160, 89, 0.15);
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg-ultra-dark);
+            color: var(--text-main);
+            font-family: 'Manrope', sans-serif;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, var(--warm-glow), transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(244, 222, 149, 0.05), transparent 50%);
+            background-attachment: fixed;
         }
 
-        /* --- TYPOGRAPHY MEWAH --- */
-        .gold-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0px 4px 20px rgba(191, 149, 63, 0.2);
+        h1, h2, h3, .brand-logo {
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        h1, h2, h3 { 
-            font-family: 'Cinzel', serif; 
-            letter-spacing: 2px; 
-            font-weight: 400; 
-        }
-        
-        .names {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 5rem;
-            line-height: 1.2;
-            text-shadow: 0px 5px 25px rgba(252, 246, 186, 0.15);
-        }
-
-        /* --- OPENING OVERLAY (BUKA UNDANGAN) --- */
-        #cover {
+        /* ================= NAVIGATION ================= */
+        nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            top: 0; width: 100%;
+            padding: 1.5rem 6%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: center;
+            z-index: 1000;
+            background: rgba(2, 2, 2, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
 
-        #cover.open {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(1.1);
-        }
-
-        .cover-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: floatText 4s ease-in-out infinite;
-        }
-
-        @keyframes floatText {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* --- TOMBOL BUKA UNDANGAN MEWAH --- */
-        .btn-open {
-            margin-top: 50px;
-            padding: 15px 40px;
-            background: var(--gold-gradient);
-            border: none;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+        .brand-logo {
+            font-size: 2rem;
             font-weight: 700;
-            color: #000 !important;
-            letter-spacing: 4px;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(191, 149, 63, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .btn-open:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 10px rgba(191, 149, 63, 0.4);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,1) 100%), 
-                        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover fixed;
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .date-hero {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-        }
-
-        /* --- COUPLE SECTION --- */
-        .section {
-            padding: 100px 20px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .couple-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Flex direction row untuk desktop */
-            flex-direction: row; 
-            gap: 50px;
-            margin-top: 60px;
-        }
-
-        .person {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* TANDA "&" YANG SUDAH DIPERBAIKI */
-        .ampersand {
-            font-family: 'Cinzel', serif; 
-            font-size: 4rem;
-            line-height: 1;
-            /* Mencegah di-select/diblok biru */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* Frame Arch Mewah */
-        .photo-arch {
-            width: 250px;
-            height: 350px;
-            border-radius: 125px 125px 0 0;
-            overflow: hidden;
-            margin-bottom: 30px;
-            position: relative;
-            box-shadow: inset 0 -50px 50px -10px var(--bg-dark);
-        }
-
-        .photo-arch img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(20%) contrast(1.1); 
-            transition: 1s ease;
-        }
-
-        .person:hover .photo-arch img {
-            transform: scale(1.05);
-            filter: grayscale(0%) contrast(1.1);
-        }
-
-        .person h2 { font-family: 'Pinyon Script', cursive; font-size: 3.5rem; text-transform: none; margin-bottom: 10px;}
-        .person p { font-weight: 300; font-size: 0.9rem; color: #a0a0a0; }
-
-        /* --- COUNTDOWN --- */
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .time-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .time-box span {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
+        .btn-outline {
+            padding: 0.6rem 1.8rem;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 4px;
+            font-size: 0.85rem;
             font-weight: 600;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .time-box p {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            color: #888;
-        }
-
-        /* --- EVENT DETAILS --- */
-        .event-details {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .event-item {
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .event-item h3 { font-size: 2rem; margin-bottom: 15px; }
-        .event-item p { margin-bottom: 8px; font-weight: 300; line-height: 1.6; }
-
-        .btn-location {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 0;
-            color: var(--text-light);
             text-decoration: none;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
+            overflow: hidden;
         }
 
-        .btn-location::after {
+        .btn-outline::before {
             content: '';
             position: absolute;
-            bottom: 0; left: 0;
-            width: 100%; height: 1px;
-            background: var(--gold-gradient);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--gold-primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
         }
 
-        /* --- ANIMASI REVEAL --- */
-        .reveal {
+        .btn-outline:hover {
+            color: var(--bg-ultra-dark);
+            box-shadow: 0 0 20px var(--warm-glow);
+        }
+
+        .btn-outline:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-main);
+            position: relative;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+            -webkit-text-stroke: 0;
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            text-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .btn-solid {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            color: var(--bg-ultra-dark);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-solid:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(197, 160, 89, 0.4);
+        }
+
+        /* ================= INTERACTIVE 3D GRID ================= */
+        .services-section {
+            padding: 10rem 6%;
+            background: var(--bg-ultra-dark);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 6rem;
+            color: var(--gold-primary);
+        }
+
+        .grid-3d {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            perspective: 2000px; /* Kedalaman lensa */
+        }
+
+        .card-pro {
+            background: var(--surface-dark);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 4rem 2.5rem;
+            border-radius: 8px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* Efek garis bercahaya yang bergerak saat hover */
+        .card-pro::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 1px transparent;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .card-pro:hover {
+            border-color: rgba(197, 160, 89, 0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 40px rgba(197, 160, 89, 0.1);
+        }
+
+        .card-pro:hover::after {
+            box-shadow: inset 0 0 0 1px var(--gold-primary);
+        }
+
+        .card-icon {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: rgba(197, 160, 89, 0.2);
+            position: absolute;
+            top: 2rem; right: 2rem;
+            transform: translateZ(20px);
+            font-style: italic;
+        }
+
+        .card-pro h3 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            transform: translateZ(50px); /* Teks benar-benar pop up */
+        }
+
+        .card-pro p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            line-height: 1.7;
+            transform: translateZ(30px);
+        }
+
+        /* ================= CONTACT ================= */
+        .contact-section {
+            padding: 8rem 6%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(to bottom, var(--bg-ultra-dark), #000);
+        }
+
+        .contact-label {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .huge-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 3rem;
+            text-shadow: 0 10px 40px rgba(197, 160, 89, 0.15);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            padding: 3rem 6%;
+            text-align: center;
+            background: #000;
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* ================= ANIMATION CLASSES ================= */
+        .fade-in-up {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 1.2s cubic-bezier(0.5, 0, 0, 1);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .reveal.active {
+        .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- MUSIC ICON --- */
-        #music-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #bf953f;
-            border-radius: 50%;
-            width: 45px; height: 45px;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 100;
-            animation: spin 4s linear infinite;
-        }
-
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        #music-btn.paused { animation: none; opacity: 0.5; }
-
-        /* --- RESPONSIVE MOBILE --- */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .names { font-size: 4rem; }
-            .countdown-container { gap: 20px; }
-            .time-box span { font-size: 2.5rem; }
-            .photo-arch { width: 200px; height: 280px; }
-            
-            /* KUNCI PERBAIKAN DI SINI: Ubah jadi kolom di HP */
-            .couple-wrapper { 
-                flex-direction: column; 
-                gap: 20px; 
-            }
-            .ampersand {
-                margin: 20px 0;
-            }
-
-            .btn-open { font-size: 1rem; padding: 12px 30px; }
+            nav { padding: 1.2rem 6%; }
+            .hero { padding-top: 6rem; }
+            .card-pro { padding: 3rem 1.5rem; }
+            .grid-3d { gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <audio id="bg-music" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-memories.mp3" type="audio/mpeg">
-    </audio>
-
-    <button id="music-btn" onclick="toggleMusic()">🎵</button>
-
-    <div id="cover">
-        <div class="cover-content">
-            <p class="subtitle gold-text">THE WEDDING OF</p>
-            <h1 class="names gold-text" style="margin: 20px 0;">Oci & Dede</h1>
-            <p style="font-weight: 200; letter-spacing: 2px; color: #aaa; margin-top: 10px;">Kepada Yth. Tamu Undangan</p>
-            
-            <button class="btn-open" onclick="openInvitation()">BUKA UNDANGAN</button>
-        </div>
-    </div>
+    <nav>
+        <div class="brand-logo">Undangin.</div>
+        <a href="https://wa.me/6281324481206" class="btn-outline">Konsultasi</a>
+    </nav>
 
     <section class="hero">
-        <div class="reveal">
-            <p class="subtitle gold-text">WE ARE GETTING MARRIED</p>
-            <h1 class="names gold-text">Oci & Dede</h1>
-            <p class="date-hero">12 JUNI 2026</p>
+        <div class="hero-content">
+            <h1 class="fade-in-up">MAHAKARYA <span>Digital.</span></h1>
+            <p class="fade-in-up" style="transition-delay: 0.2s;">Sebuah standar baru dalam industri undangan digital. Arsitektur UI/UX 3D yang dirancang secara spesifik, menghadirkan estetika visual HD yang tajam, elegan, dan profesional untuk representasi acara Anda.</p>
+            <div class="fade-in-up" style="transition-delay: 0.4s;">
+                <a href="https://wa.me/6281324481206" class="btn-solid">Mulai Eksklusivitas</a>
+            </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="gold-text reveal" style="font-size: 2.5rem;">Mempelai</h2>
-        
-        <div class="couple-wrapper">
+    <section class="services-section">
+        <h2 class="section-title fade-in-up">Visual Tanpa Batas</h2>
+        <div class="grid-3d">
             
-            <div class="person reveal">
-                <div class="photo-arch">
-                    <img src="oci.jpg" alt="Oci">
-                </div>
-                <h2 class="gold-text">Oci</h2>
-                <p>Putri dari Keluarga Bapak ... & Ibu ...</p>
+            <div class="card-pro fade-in-up">
+                <div class="card-icon">01</div>
+                <h3>Pernikahan</h3>
+                <p>Tata letak romantis dengan sistem pencahayaan sinematik digital. Mengintegrasikan galeri resolusi tinggi dan fitur RSVP modern dengan performa sempurna.</p>
             </div>
 
-            <div class="ampersand gold-text reveal">&</div>
+            <div class="card-pro fade-in-up" style="transition-delay: 0.2s;">
+                <div class="card-icon">02</div>
+                <h3>Corporate Event</h3>
+                <p>Desain arsitektural yang tegas dan bersih. Dibangun khusus untuk mempresentasikan peluncuran produk atau gala dinner dengan wibawa dan profesionalisme.</p>
+            </div>
 
-            <div class="person reveal">
-                <div class="photo-arch">
-                    <img src="dede.jpg" alt="Dede">
-                </div>
-                <h2 class="gold-text">Dede</h2>
-                <p>Putra dari Keluarga Bapak ... & Ibu ...</p>
+            <div class="card-pro fade-in-up" style="transition-delay: 0.4s;">
+                <div class="card-icon">03</div>
+                <h3>Custom Setup</h3>
+                <p>Kami menerjemahkan visi Anda menjadi antarmuka digital. Seluruh undangan dari ulang tahun hingga eksibisi dibangun dengan standar resolusi 3D HD.</p>
             </div>
 
         </div>
     </section>
 
-    <section class="section" style="padding-top: 20px;">
-        <h2 class="gold-text reveal" style="font-size: 2rem;">Menuju Hari Bahagia</h2>
-        <div class="countdown-container reveal">
-            <div class="time-box">
-                <span class="gold-text" id="days">00</span>
-                <p>Hari</p>
-            </div>
-            <div class="time-box">
-                <span class="gold-text" id="hours">00</span>
-                <p>Jam</p>
-            </div>
-            <div class="time-box">
-                <span class="gold-text" id="minutes">00</span>
-                <p>Menit</p>
-            </div>
-            <div class="time-box">
-                <span class="gold-text" id="seconds">00</span>
-                <p>Detik</p>
-            </div>
-        </div>
+    <section class="contact-section fade-in-up">
+        <span class="contact-label">Jalur Komunikasi VIP 24/7</span>
+        <span class="huge-number">0813 2448 1206</span>
+        <a href="https://wa.me/6281324481206" class="btn-outline" style="padding: 1.2rem 3rem; font-size: 1rem;">Hubungi WhatsApp</a>
     </section>
 
-    <section class="section">
-        <h2 class="gold-text reveal" style="font-size: 2.5rem; margin-bottom: 40px;">Rangkaian Acara</h2>
-        
-        <div class="event-details">
-            <div class="event-item reveal">
-                <h3 class="gold-text">Akad Nikah</h3>
-                <p style="color: var(--text-light);">Jumat, 12 Juni 2026</p>
-                <p style="color: #aaa;">Pukul 08.00 WIB - Selesai</p>
-                <br>
-                <p style="color: var(--text-light); font-weight: 400; font-family: 'Cinzel', serif;">Grand Ballroom Hotel Mewah</p>
-                <p style="color: #aaa;">Jl. Sudirman No. 1, Jakarta</p>
-                <a href="#" class="btn-location gold-text">GOOGLE MAPS</a>
-            </div>
-
-            <div class="event-item reveal" style="margin-top: 30px;">
-                <h3 class="gold-text">Resepsi</h3>
-                <p style="color: var(--text-light);">Jumat, 12 Juni 2026</p>
-                <p style="color: #aaa;">Pukul 19.00 WIB - Selesai</p>
-                <br>
-                <p style="color: var(--text-light); font-weight: 400; font-family: 'Cinzel', serif;">Grand Ballroom Hotel Mewah</p>
-                <p style="color: #aaa;">Jl. Sudirman No. 1, Jakarta</p>
-                <a href="#" class="btn-location gold-text">GOOGLE MAPS</a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 80px 20px; text-align: center; background-color: #000;">
-        <h2 class="names gold-text" style="font-size: 3rem;">Oci & Dede</h2>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #555; letter-spacing: 2px;">12 JUNE 2026</p>
+    <footer>
+        <p>&copy; <span id="tahun-copyright"></span> Undangin. Desain UI/UX 3D HD PRO. Hak Cipta Dilindungi.</p>
     </footer>
 
     <script>
-        function openInvitation() {
-            document.getElementById('cover').classList.add('open');
-            const audio = document.getElementById('bg-music');
-            audio.play();
-            document.body.style.overflowY = 'auto';
-            setTimeout(reveal, 500);
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. OTOMATIS TAHUN COPYRIGHT (Sesuai Permintaan)
+            document.getElementById('tahun-copyright').textContent = new Date().getFullYear();
 
-        function toggleMusic() {
-            const audio = document.getElementById('bg-music');
-            const btn = document.getElementById('music-btn');
-            if (audio.paused) {
-                audio.play();
-                btn.classList.remove('paused');
-            } else {
-                audio.pause();
-                btn.classList.add('paused');
-            }
-        }
+            // 2. SCROLL ANIMATION (Intersection Observer)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
-        const targetDate = new Date("Jun 12, 2026 08:00:00").getTime();
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-        setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+            // 3. ADVANCED 3D TILT EFFECT UNTUK CARD (JS INTERAKTIF)
+            // Efek ini membuat kartu benar-benar bereaksi terhadap kursor/jari seperti objek 3D nyata
+            const cards = document.querySelectorAll('.card-pro');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Kalkulasi rotasi (makin besar pembagi, makin halus efeknya)
+                    const rotateX = ((y - centerY) / centerY) * -8;
+                    const rotateY = ((x - centerX) / centerX) * 8;
 
-            if (distance < 0) {
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
-                return;
-            }
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
 
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
+                // Reset posisi saat kursor keluar
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    card.style.transition = `transform 0.5s ease, border-color 0.4s ease, box-shadow 0.4s ease`;
+                });
 
-            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
-        }, 1000);
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                var revealPoint = 100; 
-
-                if (revealTop < windowHeight - revealPoint) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-        
-        document.body.style.overflowY = 'hidden';
-        window.addEventListener('scroll', reveal);
+                // Hapus transisi saat bergerak agar instan & responsif
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = `border-color 0.4s ease, box-shadow 0.4s ease`; 
+                });
+            });
+        });
     </script>
 </body>
 </html>
