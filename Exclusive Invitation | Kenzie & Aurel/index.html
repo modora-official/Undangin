@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta property="og:title" content="The Royal Wedding of Kenzie & Aurel">
+    <meta property="og:description" content="Dengan penuh syukur, kami mengundang Anda untuk merayakan momen sakral pernikahan kami.">
+    <meta property="og:image" itemprop="image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+
+    <title>Exclusive Invitation | Kenzie & Aurel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* RESET & ANTI-OUTLINE KLIK */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            -webkit-tap-highlight-color: transparent !important; 
+        }
+        
+        button, a, input, textarea {
+            outline: none !important;
+            box-shadow: none !important;
+            -webkit-focus-ring-color: transparent !important;
+        }
+
+        body { 
+            background-color: #030405; /* Hitam pekat eksklusif untuk layar PC */
+            font-family: 'Montserrat', sans-serif;
+            color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* CONTAINER APLIKASI (RESPONSIF) */
+        .mobile-wrapper {
+            width: 100%;
+            max-width: 480px; 
+            background: #080a0e;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 80px rgba(212, 175, 55, 0.08); 
+            overflow: hidden;
+        }
+
+        /* ANIMASI BACKGROUND BINTANG/DEBU EMAS */
+        .bg-particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+            animation: drift 40s linear infinite;
+        }
+        @keyframes drift { 100% { background-position: 1000px 1000px; } }
+
+        /* TYPOGRAPHY EXCLUSIVE */
+        .text-gold { 
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-script { 
+            font-family: 'Pinyon Script', cursive; 
+            font-size: 5rem; 
+            line-height: 1.1;
+            text-shadow: 0px 5px 25px rgba(212, 175, 55, 0.4);
+            color: #d4af37; /* Fallback */
+        }
+        
+        h2 { font-size: 1rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; }
+        p { font-size: 0.85rem; line-height: 1.9; color: #a0a0a0; font-weight: 200; }
+
+        /* COVER SCREEN */
+        .cover-screen {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+            padding: 30px;
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.5s ease;
+            overflow: hidden;
+        }
+        
+        .cover-bg {
+            position: absolute;
+            top: -5%; left: -5%; width: 110%; height: 110%;
+            background: linear-gradient(to bottom, rgba(5,7,10,0.3), rgba(5,7,10,0.95)), url('https://images.unsplash.com/photo-1544535830-9df3f56fff6a?q=80&w=800&auto=format&fit=crop') center/cover;
+            z-index: 1;
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+        @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+        .cover-content { z-index: 2; position: relative; width: 100%; }
+        
+        .guest-box {
+            margin: 50px 0;
+            padding: 25px 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-left: none; border-right: none;
+            backdrop-filter: blur(5px);
+        }
+        .guest-box span { font-size: 0.7rem; color: #aaa; letter-spacing: 3px; text-transform: uppercase; }
+        .guest-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-top: 10px; color: #fff; font-style: italic; letter-spacing: 1px; }
+
+        .cover-screen.open {
+            transform: translateY(-100vh);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* BUTTON ULTRA MEWAH */
+        .btn-gold-outline {
+            background: transparent;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 15px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+        }
+        .btn-gold-outline:hover, .btn-gold-outline:active { 
+            background: rgba(212, 175, 55, 0.15); 
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border-color: #fcf6ba;
+            color: #fcf6ba;
+        }
+
+        .btn-solid-glow {
+            background: linear-gradient(135deg, #c5a059, #8c6a32);
+            color: #000;
+            border: none;
+            padding: 12px 35px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content {
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            z-index: 2;
+            scroll-behavior: smooth;
+            padding-bottom: 80px;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .main-content::-webkit-scrollbar { display: none; } /* Hide scrollbar for Chrome/Safari */
+
+        .section { padding: 90px 30px 40px 30px; text-align: center; position: relative; }
+
+        /* PREMIUM GLASSMORPHISM */
+        .glass-box {
+            background: rgba(15, 18, 25, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 50px 30px;
+            margin: 20px 0;
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05), 0 25px 50px rgba(0,0,0,0.8);
+            position: relative;
+        }
+        
+        /* FOTO MEMPELAI (FLOATING ICONS) */
+        .couple-wrapper { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .couple-img {
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(212,175,55,0.15), transparent);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+            padding: 22px;
+            margin-bottom: 15px;
+            object-fit: contain;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+
+        /* ORNAMEN GARIS */
+        .divider { width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, #d4af37, transparent); margin: 25px auto; }
+        .divider-h { width: 80px; height: 1px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 30px auto; }
+
+        /* MUSIK BUTTON (VINYL) */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            background: #080a0e;
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            color: #d4af37;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            animation: spin 6s linear infinite;
+        }
+        .music-btn.paused { animation: none; border-color: #555; color: #555; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* ANIMASI SCROLL (FADE UP) */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop preload="auto"></audio>
+
+    <div class="mobile-wrapper">
+        <div class="bg-particles"></div>
+        
+        <div id="cover" class="cover-screen">
+            <div class="cover-bg"></div>
+            <div class="cover-content">
+                <h2 class="font-serif text-gold">The Royal Wedding Of</h2>
+                <h1 class="font-script text-gold" style="margin: 20px 0;">Kenzie <br>&<br> Aurel</h1>
+                
+                <div class="guest-box">
+                    <span>Eksklusif Kepada Yth.</span>
+                    <div class="guest-name text-gold">Tamu Kehormatan</div>
+                </div>
+
+                <button onclick="bukaUndangan()" class="btn-gold-outline">
+                    Buka Undangan
+                </button>
+            </div>
+        </div>
+
+        <div id="music-control" class="music-btn" style="display: none;" onclick="toggleMusic()">
+            <i class="fas fa-compact-disc"></i>
+        </div>
+
+        <div class="main-content" id="main-content" style="overflow-y: hidden;">
+            
+            <div class="section fade-up" id="sec-1">
+                <i class="fas fa-rings text-gold" style="font-size: 2.5rem; margin-bottom: 25px; opacity: 0.8;"></i>
+                <p style="font-size: 0.85rem; font-style: italic; letter-spacing: 1px; color: #dcdcdc;">
+                    "Dua jiwa namun satu pikiran, dua hati namun satu detak. Dengan memohon rahmat Tuhan, kami menyatukan cinta suci ini."
+                </p>
+                <div class="divider"></div>
+                <h2 class="font-serif text-gold">Save The Date</h2>
+                <h1 class="font-script text-gold" style="font-size: 3.5rem; margin: 20px 0;">25 . 12 . 2026</h1>
+            </div>
+
+            <div class="section fade-up" id="sec-2" style="padding-top: 0;">
+                <h2 class="font-serif text-gold">Groom & Bride</h2>
+                <div class="divider-h"></div>
+                
+                <div class="glass-box couple-wrapper">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3171/3171804.png" alt="Groom" class="couple-img">
+                        <h3 class="font-serif text-gold" style="font-size: 2rem;">Kenzie Alaric</h3>
+                        <p style="font-size: 0.75rem; margin-top: 5px;">Putra Mahkota dari Kel. Bpk Ahmad & Ibu Siti</p>
+                    </div>
+
+                    <h1 class="font-script text-gold" style="font-size: 4rem; margin: -20px 0;">&</h1>
+
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3171/3171809.png" alt="Bride" class="couple-img">
+                        <h3 class="font-serif text-gold" style="font-size: 2rem;">Aurelia Putri</h3>
+                        <p style="font-size: 0.75rem; margin-top: 5px;">Putri Jelita dari Kel. Bpk Budi & Ibu Ratna</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section fade-up" id="sec-3" style="padding-top: 0;">
+                <h2 class="font-serif text-gold">Wedding Event</h2>
+                <p style="margin-bottom: 40px;">Kami mengundang Anda untuk menjadi saksi momen paling membahagiakan ini.</p>
+                
+                <div class="glass-box">
+                    <h3 class="font-serif text-gold" style="font-size: 1.8rem;">Holy Matrimony</h3>
+                    <p style="margin: 15px 0; color: #fff; font-weight: 300; letter-spacing: 2px;">SABTU, 25 DES 2026</p>
+                    <p>08.00 WIB - 10.00 WIB</p>
+                    
+                    <div class="divider-h" style="width: 150px; background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.4), transparent);"></div>
+                    
+                    <h3 class="font-serif text-gold" style="font-size: 1.8rem;">Royal Reception</h3>
+                    <p style="margin: 15px 0; color: #fff; font-weight: 300; letter-spacing: 2px;">SABTU, 25 DES 2026</p>
+                    <p>19.00 WIB - Selesai</p>
+                </div>
+
+                <div class="glass-box" style="margin-top: -15px; border-top: none;">
+                    <i class="fas fa-gem text-gold" style="font-size: 1.5rem; margin-bottom: 20px;"></i>
+                    <h3 class="font-serif text-gold" style="font-size: 1.5rem; margin-bottom: 5px;">Grand Ballroom Ritz-Carlton</h3>
+                    <p style="font-size: 0.8rem; margin-bottom: 30px;">Pacific Place, SCBD, Jakarta Selatan</p>
+                    
+                    <a href="https://maps.google.com" target="_blank" class="btn-solid-glow">
+                        <i class="fas fa-map-marked-alt"></i> View Location
+                    </a>
+                </div>
+            </div>
+
+            <div class="section fade-up" id="sec-4" style="padding-top: 0;">
+                <div class="glass-box" style="border: 1px solid #d4af37;">
+                    <h2 class="font-serif text-gold" style="margin-bottom: 10px;">RSVP Confirmation</h2>
+                    <p style="margin-bottom: 30px; font-size: 0.8rem;">Mohon konfirmasi kehadiran Anda untuk pengaturan kursi kelas VIP.</p>
+                    
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20akan%20hadir%20di%20acara%20pernikahan%20Kenzie%20&%20Aurel" target="_blank" class="btn-gold-outline" style="width: 100%; border-radius: 0;">
+                        <i class="fab fa-whatsapp" style="margin-right: 5px;"></i> Confirm Now
+                    </a>
+                </div>
+            </div>
+
+            <div style="padding: 60px 20px; text-align: center; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                <h1 class="font-script text-gold" style="font-size: 3.5rem; margin-bottom: 15px;">K & A</h1>
+                <p style="font-size: 0.6rem; color: #555; letter-spacing: 4px; text-transform: uppercase;">
+                    © 2026 Exclusive Digital Invitation
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // DAFTAR MUSIK YANG AKAN DIACAK
+        const playlist = [
+            "../../../../../musik1.mp3",
+            "../../../../../musik2.mp3",
+            "../../../../../musik3.mp3"
+        ];
+
+        var audio = document.getElementById("bg-music");
+        var isPlaying = false;
+
+        // FUNGSI MEMUTAR MUSIK SECARA RANDOM
+        function playRandomMusic() {
+            // Pilih indeks acak dari 0 sampai 2
+            var randomIndex = Math.floor(Math.random() * playlist.length);
+            
+            // Set sumber musik yang terpilih
+            audio.src = playlist[randomIndex];
+            
+            // Load dan mainkan
+            audio.load();
+            audio.play().catch(function(error) {
+                console.log("Autoplay dicegah browser.");
+            });
+            isPlaying = true;
+        }
+
+        // FUNGSI BUKA UNDANGAN
+        function bukaUndangan() {
+            // 1. Animasi Buka Sampul
+            document.getElementById("cover").classList.add("open");
+            
+            // 2. Izinkan Scroll
+            var mainContent = document.getElementById('main-content');
+            mainContent.style.overflowY = 'auto';
+            
+            // 3. Panggil Fungsi Play Musik Random
+            playRandomMusic();
+            
+            // 4. Tampilkan Tombol Musik
+            document.getElementById("music-control").style.display = "flex";
+
+            // 5. Memicu animasi fade-up
+            setTimeout(() => { checkFade(); }, 600);
+        }
+
+        // FUNGSI PLAY/PAUSE MUSIK (TOMBOL VINYL)
+        function toggleMusic() {
+            var musicBtn = document.getElementById("music-control");
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.classList.add("paused");
+                musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                audio.play();
+                musicBtn.classList.remove("paused");
+                musicBtn.innerHTML = '<i class="fas fa-compact-disc"></i>';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // FUNGSI ANIMASI FADE-UP SAAT SCROLL
+        function checkFade() {
+            var elements = document.querySelectorAll('.fade-up');
+            var windowHeight = window.innerHeight;
+            
+            elements.forEach(function(el) {
+                var positionFromTop = el.getBoundingClientRect().top;
+                // Jika elemen masuk ke area pandang
+                if (positionFromTop - windowHeight <= -50) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        
+        // Pemicu Scroll
+        document.getElementById('main-content').addEventListener('scroll', checkFade);
+    </script>
+</body>
+</html>
