@@ -38,7 +38,9 @@
             display: flex;
             justify-content: center;
             overflow: hidden; 
+            /* FIX 1: Pakai fallback 100vh untuk browser lama, dan 100dvh untuk browser HP modern */
             height: 100vh;
+            height: 100dvh;
         }
 
         /* CONTAINER UTAMA */
@@ -46,7 +48,9 @@
             width: 100%;
             max-width: 480px; 
             background-color: var(--sapphire-dark);
+            /* FIX 2: Sesuaikan tinggi container dengan body */
             height: 100vh;
+            height: 100dvh;
             position: relative;
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.5); 
             overflow: hidden;
@@ -65,14 +69,13 @@
         h2 { font-size: 0.9rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; text-align: center; color: var(--silver); }
         p { font-size: 0.85rem; line-height: 1.8; color: var(--text-gray); font-weight: 100; text-align: center; }
 
-        /* --- OPENING: HORIZONTAL SPLIT DOORS (FIXED LAYOUT) --- */
+        /* --- OPENING: HORIZONTAL SPLIT DOORS --- */
         .split-opening {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 9999; display: flex; overflow: hidden;
             transition: visibility 1.5s;
         }
         
-        /* Pintu Kiri dan Kanan */
         .door {
             width: 50%; height: 100%;
             background-color: var(--sapphire-medium);
@@ -82,7 +85,6 @@
         .door-left { border-right: 1px solid rgba(192, 192, 192, 0.2); }
         .door-right { border-left: 1px solid rgba(192, 192, 192, 0.2); }
 
-        /* Konten Teks di Atas Pintu (Agar tidak terpotong) */
         .door-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -100,7 +102,7 @@
             border-radius: 50%;
             background: radial-gradient(circle, var(--sapphire-medium) 0%, var(--sapphire-dark) 100%);
             display: flex; justify-content: center; align-items: center;
-            cursor: pointer; pointer-events: auto; /* Bisa diklik */
+            cursor: pointer; pointer-events: auto;
             box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
             transition: all 0.5s ease;
             margin-top: 10px;
@@ -108,13 +110,11 @@
         .center-seal:hover { box-shadow: 0 0 50px rgba(192, 192, 192, 0.6); transform: scale(1.05); }
         .center-seal i { color: var(--silver-light); font-size: 2rem; opacity: 0.9; }
 
-        /* Animasi Pintu Terbuka */
         .split-opening.open .door-left { transform: translateX(-100%); }
         .split-opening.open .door-right { transform: translateX(100%); }
         .split-opening.open .door-overlay { opacity: 0; visibility: hidden; }
-        .split-opening.open { visibility: hidden; } /* Menyembunyikan keseluruhan setelah 1.5 detik */
+        .split-opening.open { visibility: hidden; }
 
-        /* TOMBOL MEWAH */
         .btn-silver {
             background: transparent; color: var(--silver-light); border: 1px solid var(--silver);
             padding: 12px 35px; font-family: 'Lato', sans-serif; font-weight: 300; font-size: 0.8rem;
@@ -123,10 +123,13 @@
         }
         .btn-silver:hover { background: rgba(192, 192, 192, 0.15); box-shadow: 0 0 20px rgba(192, 192, 192, 0.3); color: #fff; }
 
-        /* --- MAIN LAYOUT: HORIZONTAL SNAP SLIDER (FIXED) --- */
+        /* --- MAIN LAYOUT: HORIZONTAL SNAP SLIDER --- */
         .slider-container {
             display: flex;
-            width: 100%; height: 100%;
+            width: 100%; 
+            /* FIX 3: Sesuaikan tinggi slider dengan body */
+            height: 100vh;
+            height: 100dvh;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
@@ -134,8 +137,9 @@
         .slider-container::-webkit-scrollbar { display: none; } 
 
         .slide {
-            flex: 0 0 100%; /* Memastikan setiap slide ukurannya persis 1 layar */
-            width: 100%; height: 100%;
+            flex: 0 0 100%; 
+            width: 100%; 
+            height: 100%;
             scroll-snap-align: start;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             position: relative; padding: 40px; overflow: hidden;
@@ -150,15 +154,15 @@
         }
 
         /* --- ICON FOTO MEMPELAI --- */
-        .couple-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 30px; margin-top: 30px; }
+        .couple-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 20px; margin-top: 20px; }
         
         .couple-frame {
-            width: 120px; height: 160px;
+            width: 110px; height: 150px;
             border: 2px solid var(--silver); border-radius: 80px; padding: 10px;
             display: flex; justify-content: center; align-items: center;
             background: radial-gradient(circle, rgba(192,192,192,0.1) 0%, transparent 70%);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(192,192,192,0.2);
-            position: relative; overflow: hidden;
+            position: relative; overflow: hidden; flex-shrink: 0;
         }
         .couple-frame::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -174,30 +178,27 @@
 
         .divider-silver { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--silver), transparent); margin: 25px auto; }
 
-        /* KOTAK INFO */
         .sapphire-card {
             background: rgba(10, 21, 41, 0.7); backdrop-filter: blur(10px);
             border: 1px solid rgba(192, 192, 192, 0.2); border-radius: 4px;
-            padding: 30px 20px; width: 100%; margin-bottom: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            padding: 25px 20px; width: 100%; margin-bottom: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.4);
             z-index: 2;
         }
 
-        /* INDIKATOR SWIPE */
+        /* FIX 4: Sesuaikan letak indikator swipe agar selalu di atas border bawah */
         .swipe-hint {
-            position: absolute; bottom: 30px; display: flex; align-items: center; gap: 10px;
+            position: absolute; bottom: 35px; display: flex; align-items: center; gap: 10px;
             color: var(--silver); opacity: 0.6; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
             animation: swipeAti 2s infinite; z-index: 5;
         }
         @keyframes swipeAti { 0% { transform: translateX(0); opacity: 0.2; } 50% { transform: translateX(10px); opacity: 0.7; } 100% { transform: translateX(0); opacity: 0.2; } }
 
-        /* MUSIK BUTTON KIRI ATAS */
         .music-btn {
             position: fixed; top: 25px; left: 25px; background: transparent; color: var(--silver);
             width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;
             font-size: 1.2rem; cursor: pointer; z-index: 1000; opacity: 0.7;
         }
 
-        /* ANIMASI KONTEN (FADE IN) */
         .anim-slide { opacity: 0; transition: all 1s ease-out; transform: scale(0.95); }
         .slide.active .anim-slide { opacity: 1; transform: scale(1); }
         .slide.active .delay-1 { transition-delay: 0.3s; }
@@ -254,10 +255,10 @@
 
             <div class="slide">
                 <div class="slide-frame"></div>
-                <h2 class="font-serif anim-slide" style="z-index: 2;">Sang Mempelai</h2>
+                <h2 class="font-serif anim-slide" style="z-index: 2; margin-bottom: 5px;">Sang Mempelai</h2>
                 
                 <div class="couple-wrapper anim-slide delay-1">
-                    <div style="display: flex; align-items: center; width: 100%; gap: 20px; justify-content: center; z-index: 2;">
+                    <div style="display: flex; align-items: center; width: 100%; gap: 15px; justify-content: center; z-index: 2;">
                         <div class="couple-frame">
                             <svg class="icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"/>
@@ -265,20 +266,20 @@
                                 <path d="M512 352c-88.4 0-160 71.6-160 160v12c0 6.6 5.4 12 12 12s12-5.4 12-12v-12c0-75 61-136 136-136s136 61 136 136v12c0 6.6 5.4 12 12 12s12-5.4 12-12v-12c0-88.4-71.6-160-160-160zM224 512c0-10.3 8.3-18.7 18.7-18.7H275c10.3 0 18.7 8.3 18.7 18.7 0 10.3-8.3 18.7-18.7 18.7h-32.3C232.3 530.7 224 522.3 224 512zM730.3 512c0-10.3 8.3-18.7 18.7-18.7H781c10.3 0 18.7 8.3 18.7 18.7 0 10.3-8.3 18.7-18.7 18.7h-32c-10.3 0-18.7-8.4-18.7-18.7z"/>
                             </svg>
                         </div>
-                        <div style="text-align: left;">
+                        <div style="text-align: left; width: 50%;">
                             <h3 class="font-serif" style="font-size: 1.3rem; color: #fff;">Valerian</h3>
                             <p style="font-size: 0.65rem; text-align: left; margin-top: 5px;">Putra Bpk. Anton<br>& Ibu Rina</p>
                         </div>
                     </div>
 
-                    <div style="display: flex; align-items: center; width: 100%; gap: 20px; justify-content: center; flex-direction: row-reverse; z-index: 2;">
+                    <div style="display: flex; align-items: center; width: 100%; gap: 15px; justify-content: center; flex-direction: row-reverse; z-index: 2;">
                         <div class="couple-frame">
                             <svg class="icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"/>
                                 <path d="M512 256c-61.9 0-112 50.1-112 112s50.1 112 112 112 112-50.1 112-112-50.1-112-112-112zm0 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zM512 544c-132.5 0-240 107.5-240 240v24c0 6.6 5.4 12 12 12s12-5.4 12-12v-24c0-119.3 96.7-216 216-216s216 96.7 216 216v24c0 6.6 5.4 12 12 12s12-5.4 12-12v-24c0-132.5-107.5-240-240-240zm0-24c6.6 0 12-5.4 12-12s-5.4-12-12-12-12 5.4-12 12 5.4 12 12 12zm0 128c-6.6 0-12 5.4-12 12v32c0 6.6 5.4 12 12 12s12-5.4 12-12v-32c0-6.6-5.4-12-12-12zm-282.8 1.2c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6zm565.6 17l22.6-22.6c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0z"/>
                             </svg>
                         </div>
-                        <div style="text-align: right;">
+                        <div style="text-align: right; width: 50%;">
                             <h3 class="font-serif" style="font-size: 1.3rem; color: #fff;">Seraphina</h3>
                             <p style="font-size: 0.65rem; text-align: right; margin-top: 5px;">Putri Bpk. Budi<br>& Ibu Maya</p>
                         </div>
@@ -375,12 +376,11 @@
             isPlaying = !isPlaying;
         }
 
-        // SISTEM DETEKSI SLIDE AKTIF (SUPER STABIL PAKAI INTERSECTION OBSERVER)
         const slides = document.querySelectorAll('.slide');
         
         const observerOptions = {
             root: document.getElementById('main-content'),
-            threshold: 0.6 // Slide dianggap aktif jika 60% layar sudah masuk
+            threshold: 0.6 
         };
 
         const slideObserver = new IntersectionObserver((entries) => {
