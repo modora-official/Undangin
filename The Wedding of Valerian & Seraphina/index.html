@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta property="og:title" content="The Wedding of Valerian & Seraphina">
+    <meta property="og:description" content="Dengan penuh syukur, kami mengundang Anda untuk merayakan momen sakral pernikahan kami.">
+    <meta property="og:image" itemprop="image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+
+    <title>The Sapphire Wedding | Valerian & Seraphina</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@100;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* RESET & ANTI-OUTLINE KLIK */
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent !important; }
+        button, a, input, textarea { outline: none !important; box-shadow: none !important; }
+
+        /* PALET WARNA SAPPHIRE & SILVER */
+        :root {
+            --sapphire-dark: #050a14;
+            --sapphire-medium: #0a1529;
+            --silver: #C0C0C0;
+            --silver-light: #e1e1e1;
+            --text-white: #ffffff;
+            --text-gray: #a5bce1;
+        }
+
+        body { 
+            background-color: #dcdada; 
+            font-family: 'Lato', sans-serif;
+            color: var(--text-white);
+            display: flex;
+            justify-content: center;
+            overflow: hidden; 
+            height: 100vh;
+        }
+
+        /* CONTAINER UTAMA */
+        .mobile-wrapper {
+            width: 100%;
+            max-width: 480px; 
+            background-color: var(--sapphire-dark);
+            height: 100vh;
+            position: relative;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5); 
+            overflow: hidden;
+        }
+
+        /* TYPOGRAPHY */
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-script { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: 3.5rem; 
+            color: var(--silver-light);
+            line-height: 1.2;
+            font-weight: normal;
+        }
+        
+        h2 { font-size: 0.9rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; text-align: center; color: var(--silver); }
+        p { font-size: 0.85rem; line-height: 1.8; color: var(--text-gray); font-weight: 100; text-align: center; }
+
+        /* --- OPENING: HORIZONTAL SPLIT DOORS (FIXED LAYOUT) --- */
+        .split-opening {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; display: flex; overflow: hidden;
+            transition: visibility 1.5s;
+        }
+        
+        /* Pintu Kiri dan Kanan */
+        .door {
+            width: 50%; height: 100%;
+            background-color: var(--sapphire-medium);
+            background-image: url('https://www.transparenttextures.com/patterns/dark-dotted-2.png');
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .door-left { border-right: 1px solid rgba(192, 192, 192, 0.2); }
+        .door-right { border-left: 1px solid rgba(192, 192, 192, 0.2); }
+
+        /* Konten Teks di Atas Pintu (Agar tidak terpotong) */
+        .door-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 10; pointer-events: none;
+            transition: opacity 0.8s ease;
+        }
+
+        .guest-box-open { text-align: center; margin-top: 20px; margin-bottom: 30px; }
+        .guest-box-open span { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-gray); }
+        .guest-name-open { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-top: 10px; color: var(--text-white); font-weight: bold; }
+
+        .center-seal {
+            width: 90px; height: 90px;
+            border: 2px solid var(--silver);
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--sapphire-medium) 0%, var(--sapphire-dark) 100%);
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; pointer-events: auto; /* Bisa diklik */
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
+            transition: all 0.5s ease;
+            margin-top: 10px;
+        }
+        .center-seal:hover { box-shadow: 0 0 50px rgba(192, 192, 192, 0.6); transform: scale(1.05); }
+        .center-seal i { color: var(--silver-light); font-size: 2rem; opacity: 0.9; }
+
+        /* Animasi Pintu Terbuka */
+        .split-opening.open .door-left { transform: translateX(-100%); }
+        .split-opening.open .door-right { transform: translateX(100%); }
+        .split-opening.open .door-overlay { opacity: 0; visibility: hidden; }
+        .split-opening.open { visibility: hidden; } /* Menyembunyikan keseluruhan setelah 1.5 detik */
+
+        /* TOMBOL MEWAH */
+        .btn-silver {
+            background: transparent; color: var(--silver-light); border: 1px solid var(--silver);
+            padding: 12px 35px; font-family: 'Lato', sans-serif; font-weight: 300; font-size: 0.8rem;
+            letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
+            display: inline-block; text-decoration: none;
+        }
+        .btn-silver:hover { background: rgba(192, 192, 192, 0.15); box-shadow: 0 0 20px rgba(192, 192, 192, 0.3); color: #fff; }
+
+        /* --- MAIN LAYOUT: HORIZONTAL SNAP SLIDER (FIXED) --- */
+        .slider-container {
+            display: flex;
+            width: 100%; height: 100%;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .slider-container::-webkit-scrollbar { display: none; } 
+
+        .slide {
+            flex: 0 0 100%; /* Memastikan setiap slide ukurannya persis 1 layar */
+            width: 100%; height: 100%;
+            scroll-snap-align: start;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative; padding: 40px; overflow: hidden;
+        }
+
+        .slide:nth-child(even) { background-color: var(--sapphire-medium); background-image: url('https://www.transparenttextures.com/patterns/dark-dotted-2.png'); }
+        .slide:nth-child(odd) { background-color: var(--sapphire-dark); background-image: url('https://www.transparenttextures.com/patterns/az-subtle.png'); }
+
+        .slide-frame {
+            position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px;
+            border: 1px solid rgba(192, 192, 192, 0.15); pointer-events: none; z-index: 1;
+        }
+
+        /* --- ICON FOTO MEMPELAI --- */
+        .couple-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 30px; margin-top: 30px; }
+        
+        .couple-frame {
+            width: 120px; height: 160px;
+            border: 2px solid var(--silver); border-radius: 80px; padding: 10px;
+            display: flex; justify-content: center; align-items: center;
+            background: radial-gradient(circle, rgba(192,192,192,0.1) 0%, transparent 70%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(192,192,192,0.2);
+            position: relative; overflow: hidden;
+        }
+        .couple-frame::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg); animation: silverGlow 4s infinite linear;
+        }
+        @keyframes silverGlow { 0% { transform: translate(-100%, -100%) rotate(45deg); } 100% { transform: translate(100%, 100%) rotate(45deg); } }
+
+        .icon-svg {
+            width: 75%; height: 75%; fill: var(--silver-light); opacity: 0.9;
+            filter: drop-shadow(0 0 10px rgba(192,192,192,0.5)); z-index: 2; position: relative;
+        }
+
+        .divider-silver { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--silver), transparent); margin: 25px auto; }
+
+        /* KOTAK INFO */
+        .sapphire-card {
+            background: rgba(10, 21, 41, 0.7); backdrop-filter: blur(10px);
+            border: 1px solid rgba(192, 192, 192, 0.2); border-radius: 4px;
+            padding: 30px 20px; width: 100%; margin-bottom: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            z-index: 2;
+        }
+
+        /* INDIKATOR SWIPE */
+        .swipe-hint {
+            position: absolute; bottom: 30px; display: flex; align-items: center; gap: 10px;
+            color: var(--silver); opacity: 0.6; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            animation: swipeAti 2s infinite; z-index: 5;
+        }
+        @keyframes swipeAti { 0% { transform: translateX(0); opacity: 0.2; } 50% { transform: translateX(10px); opacity: 0.7; } 100% { transform: translateX(0); opacity: 0.2; } }
+
+        /* MUSIK BUTTON KIRI ATAS */
+        .music-btn {
+            position: fixed; top: 25px; left: 25px; background: transparent; color: var(--silver);
+            width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;
+            font-size: 1.2rem; cursor: pointer; z-index: 1000; opacity: 0.7;
+        }
+
+        /* ANIMASI KONTEN (FADE IN) */
+        .anim-slide { opacity: 0; transition: all 1s ease-out; transform: scale(0.95); }
+        .slide.active .anim-slide { opacity: 1; transform: scale(1); }
+        .slide.active .delay-1 { transition-delay: 0.3s; }
+        .slide.active .delay-2 { transition-delay: 0.6s; }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop preload="auto"></audio>
+
+    <div class="mobile-wrapper">
+        
+        <div id="opening" class="split-opening">
+            <div class="door door-left"></div>
+            <div class="door door-right"></div>
+            
+            <div class="door-overlay">
+                <h2 class="font-serif">The Wedding of</h2>
+                <h1 class="font-script" style="font-size: 3rem;">Valerian <br> & <br> Seraphina</h1>
+                
+                <div class="guest-box-open">
+                    <span>Kepada Yth.</span>
+                    <div class="guest-name-open">Tamu Kehormatan</div>
+                </div>
+
+                <div class="center-seal" onclick="openInvitation()">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <p style="font-size: 0.6rem; letter-spacing: 2px; margin-top: 15px; color: var(--silver);">KLIK UNTUK MEMBUKA</p>
+            </div>
+        </div>
+
+        <div id="music-control" class="music-btn" style="display: none;" onclick="toggleMusic()">
+            <i class="fas fa-volume-up"></i>
+        </div>
+
+        <div class="slider-container" id="main-content">
+            
+            <div class="slide active">
+                <div class="slide-frame"></div>
+                <div class="anim-slide delay-1" style="text-align: center; z-index: 2;">
+                    <i class="fas fa-gem" style="color: var(--silver); font-size: 2rem; margin-bottom: 25px; opacity:0.8;"></i>
+                    <h2 class="font-serif">The Sapphire Wedding</h2>
+                    <h1 class="font-script" style="margin: 20px 0;">Valerian & Seraphina</h1>
+                    <div class="divider-silver"></div>
+                    <h2 class="font-serif" style="font-size: 1.5rem; letter-spacing: 3px; color: #fff;">12 . 09 . 2026</h2>
+                </div>
+                <div class="swipe-hint anim-slide delay-2">
+                    <span>Geser Layar</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-frame"></div>
+                <h2 class="font-serif anim-slide" style="z-index: 2;">Sang Mempelai</h2>
+                
+                <div class="couple-wrapper anim-slide delay-1">
+                    <div style="display: flex; align-items: center; width: 100%; gap: 20px; justify-content: center; z-index: 2;">
+                        <div class="couple-frame">
+                            <svg class="icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"/>
+                                <path d="M512 416c-61.9 0-112 50.1-112 112s50.1 112 112 112 112-50.1 112-112-50.1-112-112-112zm0 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zM512 256c-6.6 0-12 5.4-12 12v32c0 6.6 5.4 12 12 12s12-5.4 12-12v-32c0-6.6-5.4-12-12-12zM512 704c-6.6 0-12 5.4-12 12v32c0 6.6 5.4 12 12 12s12-5.4 12-12v-32c0-6.6-5.4-12-12-12z"/>
+                                <path d="M512 352c-88.4 0-160 71.6-160 160v12c0 6.6 5.4 12 12 12s12-5.4 12-12v-12c0-75 61-136 136-136s136 61 136 136v12c0 6.6 5.4 12 12 12s12-5.4 12-12v-12c0-88.4-71.6-160-160-160zM224 512c0-10.3 8.3-18.7 18.7-18.7H275c10.3 0 18.7 8.3 18.7 18.7 0 10.3-8.3 18.7-18.7 18.7h-32.3C232.3 530.7 224 522.3 224 512zM730.3 512c0-10.3 8.3-18.7 18.7-18.7H781c10.3 0 18.7 8.3 18.7 18.7 0 10.3-8.3 18.7-18.7 18.7h-32c-10.3 0-18.7-8.4-18.7-18.7z"/>
+                            </svg>
+                        </div>
+                        <div style="text-align: left;">
+                            <h3 class="font-serif" style="font-size: 1.3rem; color: #fff;">Valerian</h3>
+                            <p style="font-size: 0.65rem; text-align: left; margin-top: 5px;">Putra Bpk. Anton<br>& Ibu Rina</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; width: 100%; gap: 20px; justify-content: center; flex-direction: row-reverse; z-index: 2;">
+                        <div class="couple-frame">
+                            <svg class="icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"/>
+                                <path d="M512 256c-61.9 0-112 50.1-112 112s50.1 112 112 112 112-50.1 112-112-50.1-112-112-112zm0 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zM512 544c-132.5 0-240 107.5-240 240v24c0 6.6 5.4 12 12 12s12-5.4 12-12v-24c0-119.3 96.7-216 216-216s216 96.7 216 216v24c0 6.6 5.4 12 12 12s12-5.4 12-12v-24c0-132.5-107.5-240-240-240zm0-24c6.6 0 12-5.4 12-12s-5.4-12-12-12-12 5.4-12 12 5.4 12 12 12zm0 128c-6.6 0-12 5.4-12 12v32c0 6.6 5.4 12 12 12s12-5.4 12-12v-32c0-6.6-5.4-12-12-12zm-282.8 1.2c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6zm565.6 17l22.6-22.6c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0z"/>
+                            </svg>
+                        </div>
+                        <div style="text-align: right;">
+                            <h3 class="font-serif" style="font-size: 1.3rem; color: #fff;">Seraphina</h3>
+                            <p style="font-size: 0.65rem; text-align: right; margin-top: 5px;">Putri Bpk. Budi<br>& Ibu Maya</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swipe-hint anim-slide delay-2">
+                    <span>Geser</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-frame"></div>
+                <h2 class="font-serif anim-slide" style="z-index: 2;">Rangkaian Acara</h2>
+                
+                <div class="sapphire-card anim-slide delay-1">
+                    <h3 class="font-serif" style="color: var(--silver-light); font-size: 1.2rem;">Pemberkatan</h3>
+                    <div class="divider-silver" style="margin: 15px auto;"></div>
+                    <p style="font-weight: 400; color: #fff;">Sabtu, 12 Sept 2026</p>
+                    <p style="margin-bottom: 5px;">09.00 - 11.00 WIB</p>
+                </div>
+
+                <div class="sapphire-card anim-slide delay-2">
+                    <h3 class="font-serif" style="color: var(--silver-light); font-size: 1.2rem;">Resepsi</h3>
+                    <div class="divider-silver" style="margin: 15px auto;"></div>
+                    <p style="font-weight: 400; color: #fff;">Sabtu, 12 Sept 2026</p>
+                    <p style="margin-bottom: 20px;">19.00 WIB - Selesai</p>
+                    
+                    <p style="color: var(--silver); font-size: 0.8rem; margin-bottom: 5px;">Plataran Hutan Kota GBK</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-silver" style="padding: 10px 20px; font-size: 0.7rem; margin-top: 10px;">
+                        Buka Google Maps
+                    </a>
+                </div>
+                
+                <div class="swipe-hint anim-slide delay-2">
+                    <span>Geser Terakhir</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-frame"></div>
+                <h2 class="font-serif anim-slide" style="z-index: 2;">Kehadiran</h2>
+                <div class="divider-silver anim-slide delay-1" style="z-index: 2;"></div>
+                
+                <p class="anim-slide delay-1" style="margin-bottom: 30px; z-index: 2; padding: 0 10px;">Doa restu Anda adalah karunia terindah. Mohon konfirmasi kehadiran Anda melalui WhatsApp.</p>
+                
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20akan%20hadir%20di%20acara%20pernikahan%20Valerian%20&%20Seraphina" target="_blank" class="btn-silver anim-slide delay-2" style="background: rgba(192,192,192,0.1); width: 80%; text-align: center; z-index: 2;">
+                    RSVP Sekarang
+                </a>
+                
+                <p class="anim-slide delay-3" style="position: absolute; bottom: 40px; font-size: 0.6rem; letter-spacing: 4px; color: #555;">
+                    V & S © 2026
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const playlist = [
+            "../../../../../musik1.mp3",
+            "../../../../../musik2.mp3",
+            "../../../../../musik3.mp3"
+        ];
+
+        var audio = document.getElementById("bg-music");
+        var isPlaying = false;
+
+        function playRandomMusic() {
+            var randomIndex = Math.floor(Math.random() * playlist.length);
+            audio.src = playlist[randomIndex];
+            audio.load();
+            audio.play().catch(function(e) { console.log("Browser mencegah autoplay."); });
+            isPlaying = true;
+        }
+
+        function openInvitation() {
+            document.getElementById("opening").classList.add("open");
+            playRandomMusic();
+            document.getElementById("music-control").style.display = "flex";
+        }
+
+        function toggleMusic() {
+            var musicBtn = document.getElementById("music-control");
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.innerHTML = '<i class="fas fa-volume-mute" style="opacity: 0.4;"></i>';
+            } else {
+                audio.play();
+                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // SISTEM DETEKSI SLIDE AKTIF (SUPER STABIL PAKAI INTERSECTION OBSERVER)
+        const slides = document.querySelectorAll('.slide');
+        
+        const observerOptions = {
+            root: document.getElementById('main-content'),
+            threshold: 0.6 // Slide dianggap aktif jika 60% layar sudah masuk
+        };
+
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => {
+            slideObserver.observe(slide);
+        });
+    </script>
+</body>
+</html>
