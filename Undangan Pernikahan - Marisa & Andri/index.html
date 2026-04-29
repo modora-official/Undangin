@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan - Marisa & Andri</title>
     
+    <meta property="og:title" content="Undangan Pernikahan - Marisa & Andri">
+    <meta property="og:description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.">
+    <meta property="og:image" content="bersama.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -58,9 +64,11 @@
         .cover-content { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 40px 20px; position: relative; }
         .cover-title { color: var(--biru-tua); font-size: 2.2rem; margin-top: 20px; font-style: italic; font-weight: 600; }
         .cover-names { font-size: 3.5rem; font-weight: 700; color: var(--gold); margin: 10px 0 40px 0; text-shadow: 2px 2px 5px rgba(212, 175, 55, 0.3); }
+        
         .photo-wrapper { position: relative; width: 220px; height: 220px; margin: 0 auto 30px; }
         .photo-ring { position: absolute; top: -12px; left: -12px; right: -12px; bottom: -12px; border: 2px solid var(--gold); border-radius: 50%; z-index: 1; }
         .photo-wrapper img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 6px solid var(--putih-solid); box-shadow: 0 15px 35px rgba(0,0,0,0.15); position: relative; z-index: 2; }
+        
         .cover-date { font-size: 1.2rem; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
         .cover-disclaimer { font-size: 0.75rem; color: #7f8c8d; margin-top: auto; margin-bottom: 20px; max-width: 80%; }
         .btn-3d {
@@ -100,7 +108,6 @@
         .event-box p { font-size: 1rem; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-box hr { border: none; height: 1px; background: rgba(212, 175, 55, 0.3); margin: 25px 0; }
 
-        /* Countdown 1 Baris */
         .countdown-container { margin-top: 40px; background: var(--putih-solid); padding: 25px 10px; border-radius: 20px; box-shadow: var(--shadow-3d); }
         .countdown-container h4 { color: var(--biru-tua); margin-bottom: 20px; font-size: 1.2rem; }
         .countdown-row { display: flex; justify-content: center; gap: 10px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
@@ -109,7 +116,27 @@
         .time-item span { display: block; font-size: 1.6rem; font-weight: 700; font-family: 'Playfair Display', serif; }
         .time-item small { font-size: 0.65rem; color: var(--biru-tua); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
 
-        /* --- HADIAH (REKENING DALAM TABEL) --- */
+        /* --- ALBUM SECTION --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: var(--shadow-3d);
+            aspect-ratio: 1/1;
+        }
+        .gallery-grid img:first-child {
+            grid-column: span 2;
+            aspect-ratio: 4/3; /* Disesuaikan ke proporsi landscape 4:3 */
+        }
+
+        /* --- HADIAH (REKENING HANYA 1 - CEWEK) --- */
         .rekening-wrapper { display: flex; flex-direction: column; gap: 25px; margin-top: 20px; }
         .atm-card { background: linear-gradient(135deg, #1A3C63, #0B1A2C); border-radius: 20px; padding: 25px; color: var(--putih-solid); box-shadow: 0 15px 35px rgba(0,0,0,0.2); position: relative; border: 1px solid rgba(255,255,255,0.1); width: 100%; display: flex; flex-direction: column; gap: 20px; }
         .atm-header { display: flex; justify-content: space-between; align-items: center; }
@@ -120,11 +147,6 @@
         .btn-copy-icon { background: var(--gold); color: var(--putih-solid); border: none; padding: 8px 15px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 6px; font-family: 'Poppins', sans-serif; }
         .btn-copy-icon:active { transform: scale(0.95); background: var(--gold-terang); }
         .atm-name { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: #cbd5e1; text-align: left; }
-        .atm-card.cowok { background: linear-gradient(135deg, #D4AF37, #B5952F); }
-        .atm-card.cowok .atm-chip { color: var(--putih-solid); }
-        .atm-card.cowok .atm-name { color: #fdfdfd; }
-        .atm-card.cowok .atm-body { background: rgba(0,0,0,0.15); border-color: rgba(255,255,255,0.3); }
-        .atm-card.cowok .btn-copy-icon { background: var(--biru-tua); }
 
         /* --- UCAPAN (TELEGRAM) --- */
         .form-container { background: var(--putih-solid); padding: 30px 20px; border-radius: 20px; box-shadow: var(--shadow-3d); text-align: left; margin-bottom: 30px; }
@@ -144,16 +166,19 @@
 
         /* --- BOTTOM NAVIGATION FLOATING MEWAH --- */
         .nav-wrapper { position: fixed; bottom: 25px; left: 0; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; }
-        .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border-radius: 50px; box-shadow: 0 15px 35px rgba(26, 60, 99, 0.15), inset 0 0 10px rgba(255,255,255,0.8); border: 1px solid rgba(212, 175, 55, 0.4); width: 95%; max-width: 450px; pointer-events: auto; }
-        .nav-item { text-decoration: none; color: #a0aab5; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 10px; border-radius: 40px; font-size: 0.75rem; font-weight: 600; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); gap: 6px; }
+        .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-radius: 50px; box-shadow: 0 15px 35px rgba(26, 60, 99, 0.15), inset 0 0 10px rgba(255,255,255,0.8); border: 1px solid rgba(212, 175, 55, 0.4); width: 98%; max-width: 500px; pointer-events: auto; }
+        .nav-item { text-decoration: none; color: #a0aab5; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px; border-radius: 40px; font-size: 0.7rem; font-weight: 600; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); gap: 4px; }
         .nav-item span { display: none; white-space: nowrap; }
-        .nav-icon { font-size: 1.1rem; transition: all 0.3s ease; }
-        .nav-item.active { background: linear-gradient(135deg, var(--gold), var(--gold-terang)); color: var(--putih-solid); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); padding: 10px 15px; }
+        .nav-icon { font-size: 1rem; transition: all 0.3s ease; }
+        .nav-item.active { background: linear-gradient(135deg, var(--gold), var(--gold-terang)); color: var(--putih-solid); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); padding: 8px 12px; }
         .nav-item.active span { display: inline-block; }
         .nav-item.active .nav-icon { color: var(--putih-solid); }
 
-        /* Floating Music */
-        .music-btn { position: fixed; bottom: 110px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: var(--putih-solid); color: var(--gold); display: flex; justify-content: center; align-items: center; box-shadow: var(--shadow-3d); z-index: 99; cursor: pointer; font-size: 1.2rem; animation: spin 4s linear infinite; }
+        /* Floating Action Buttons (Music & Share) */
+        .fab-container { position: fixed; bottom: 110px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 99; }
+        .fab-btn { width: 45px; height: 45px; border-radius: 50%; background: var(--putih-solid); color: var(--biru-tua); display: flex; justify-content: center; align-items: center; box-shadow: var(--shadow-3d); cursor: pointer; font-size: 1.1rem; border: 1px solid rgba(212, 175, 55, 0.3); transition: all 0.3s; }
+        .fab-btn:active { transform: scale(0.9); }
+        .music-btn { color: var(--gold); animation: spin 4s linear infinite; }
         .music-btn.paused { animation: none; color: #999; box-shadow: var(--shadow-inset); }
         @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
@@ -166,11 +191,11 @@
     </div>
 
     <div id="toast-notif">
-        <i class="fa-solid fa-circle-check"></i> <span id="toast-msg">Nomor Rekening Disalin!</span>
+        <i class="fa-solid fa-circle-check"></i> <span id="toast-msg">Notifikasi</span>
     </div>
 
     <audio id="bg-music" loop>
-        <source src="musik.mp3" type="audio/mpeg">
+        <source src="musik.mp4" type="audio/mp4">
     </audio>
 
     <div id="cover">
@@ -183,7 +208,7 @@
             
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
-                <img src="https://via.placeholder.com/220/0B2545/D4AF37?text=Foto+Prewedding" alt="Marisa & Andri">
+                <img src="bersama.jpg" alt="Marisa & Andri">
             </div>
 
             <p class="cover-date font-latin auto-date"></p>
@@ -210,7 +235,7 @@
                 <p>Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara pernikahan putra-putri kami:</p>
             </div>
             <div class="home-photo">
-                <img src="https://via.placeholder.com/300x350/0B2545/D4AF37?text=Foto+Kedua+Mempelai" alt="Foto Bersama">
+                <img src="bersama.jpg" alt="Foto Bersama">
             </div>
             <h2 class="home-names font-latin">Marisa & Andri</h2>
             <p style="color: var(--gold); font-weight: 600; font-size: 1.1rem;" class="auto-date"></p>
@@ -219,13 +244,13 @@
         <section id="profil" class="section section-watch">
             <h2 class="title-3d font-latin">Profil Mempelai</h2>
             <div class="card-3d">
-                <div class="photo-3d"><img src="https://via.placeholder.com/150/0B2545/D4AF37?text=Marisa" alt="Marisa"></div>
+                <div class="photo-3d"><img src="cewek.jpg" alt="Marisa"></div>
                 <h3 class="font-latin">Marisa</h3>
                 <p>Putri Ketiga dari <br> <strong>Bapak Dodo & Ibu Nani</strong></p>
             </div>
             <i class="fa-solid fa-heart dan-icon"></i>
             <div class="card-3d">
-                <div class="photo-3d"><img src="https://via.placeholder.com/150/0B2545/D4AF37?text=Andri" alt="Andri"></div>
+                <div class="photo-3d"><img src="cowok.jpg" alt="Andri"></div>
                 <h3 class="font-latin">Andri Setiawan</h3>
                 <p>Putra Pertama dari <br> <strong>Bapak Pe'i & Ibu Nani</strong></p>
             </div>
@@ -253,6 +278,17 @@
             </div>
         </section>
 
+        <section id="album" class="section section-watch">
+            <h2 class="title-3d font-latin">Album Kenangan</h2>
+            <div class="gallery-grid">
+                <img src="1.jpg" alt="Galeri 1">
+                <img src="2.jpg" alt="Galeri 2">
+                <img src="3.jpg" alt="Galeri 3">
+                <img src="4.jpg" alt="Galeri 4">
+                <img src="5.jpg" alt="Galeri 5">
+            </div>
+        </section>
+
         <section id="hadiah" class="section section-watch">
             <h2 class="title-3d font-latin">Amplop Digital</h2>
             <p style="margin-bottom: 20px; color: #666; font-size: 0.95rem; line-height: 1.6;">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, dapat mengirimkan melalui rekening di bawah ini:</p>
@@ -262,20 +298,10 @@
                         <i class="fa-solid fa-microchip atm-chip"></i><div class="atm-logo">BCA</div>
                     </div>
                     <div class="atm-body">
-                        <span class="atm-number" id="norek-cewek">1234567890</span>
+                        <span class="atm-number" id="norek-cewek">2802290340</span>
                         <button class="btn-copy-icon" onclick="copyRekening('norek-cewek')"><i class="fa-solid fa-copy"></i> Salin</button>
                     </div>
                     <div class="atm-name">A.N MARISA</div>
-                </div>
-                <div class="atm-card cowok">
-                    <div class="atm-header">
-                        <i class="fa-solid fa-microchip atm-chip"></i><div class="atm-logo">MANDIRI</div>
-                    </div>
-                    <div class="atm-body">
-                        <span class="atm-number" id="norek-cowok">0987654321</span>
-                        <button class="btn-copy-icon" onclick="copyRekening('norek-cowok')"><i class="fa-solid fa-copy"></i> Salin</button>
-                    </div>
-                    <div class="atm-name">A.N ANDRI SETIAWAN</div>
                 </div>
             </div>
         </section>
@@ -308,13 +334,21 @@
 
     </div>
 
-    <div class="music-btn paused" id="btn-music" onclick="toggleMusic()"><i class="fa-solid fa-music"></i></div>
+    <div class="fab-container" id="fab-container" style="display: none;">
+        <div class="fab-btn" onclick="shareUndangan()" title="Bagikan Undangan">
+            <i class="fa-solid fa-share-nodes"></i>
+        </div>
+        <div class="fab-btn music-btn paused" id="btn-music" onclick="toggleMusic()" title="Putar Musik">
+            <i class="fa-solid fa-music"></i>
+        </div>
+    </div>
 
     <div class="nav-wrapper" id="nav-wrapper" style="display: none;">
         <div class="bottom-nav">
             <a href="#home" class="nav-item"><i class="fa-solid fa-house nav-icon"></i><span>Home</span></a>
             <a href="#profil" class="nav-item"><i class="fa-solid fa-heart nav-icon"></i><span>Profil</span></a>
             <a href="#acara" class="nav-item"><i class="fa-solid fa-calendar-check nav-icon"></i><span>Acara</span></a>
+            <a href="#album" class="nav-item"><i class="fa-solid fa-images nav-icon"></i><span>Album</span></a>
             <a href="#hadiah" class="nav-item"><i class="fa-solid fa-gift nav-icon"></i><span>Hadiah</span></a>
             <a href="#ucapan" class="nav-item"><i class="fa-solid fa-comments nav-icon"></i><span>Ucapan</span></a>
         </div>
@@ -376,12 +410,10 @@
         }
 
         // ==========================================
-        // 3. SISTEM BACA RIWAYAT (ADAPTASI WEB MODORA)
+        // 3. SISTEM BACA RIWAYAT WEB MODORA
         // ==========================================
         async function loadHistory() {
             const wadah = document.getElementById("daftarUcapan");
-            
-            // Proxy tangguh yang digunakan web Modora
             const proxies = [
                 `https://api.codetabs.com/v1/proxy?quest=${channelLink}`,
                 `https://corsproxy.io/?${encodeURIComponent(channelLink)}`
@@ -406,10 +438,7 @@
                     const msgArray = Array.from(messages).reverse();
 
                     msgArray.forEach(msg => {
-                        // Bersihkan tag HTML agar terbaca rapi
                         let plainText = msg.innerHTML.replace(/<br\s*[\/]?>/gi, '\n').replace(/<[^>]+>/g, '');
-                        
-                        // Deteksi pola walau ada emoji 💌👤💬
                         let namaMatch = plainText.match(/Dari:\s*(.+)/i);
                         let pesanMatch = plainText.match(/Pesan:\s*([\s\S]+)/i);
                         
@@ -420,19 +449,13 @@
                     });
 
                     if (!adaPesan) { muatMemoriLokal(wadah); }
-                } else {
-                    muatMemoriLokal(wadah);
-                }
-            } catch (error) {
-                muatMemoriLokal(wadah);
-            } finally {
-                // Setelah riwayat dimuat, aktifkan polling live feed seperti web Modora
-                initLiveUpdates();
-            }
+                } else { muatMemoriLokal(wadah); }
+            } catch (error) { muatMemoriLokal(wadah); } 
+            finally { initLiveUpdates(); }
         }
 
         // ==========================================
-        // 4. LIVE UPDATE POLLING (ADAPTASI WEB MODORA)
+        // 4. LIVE UPDATE POLLING WEB MODORA
         // ==========================================
         async function initLiveUpdates() {
             try {
@@ -498,8 +521,32 @@
         }
 
         // ==========================================
-        // 5. TOAST & FITUR UI LAINNYA
+        // 5. FITUR SHARE OTOMATIS & TOAST NOTIF
         // ==========================================
+        async function shareUndangan() {
+            // Mengambil URL Otomatis
+            const linkUndangan = window.location.href;
+            
+            const shareData = {
+                title: 'Undangan Pernikahan - Marisa & Andri',
+                text: 'Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.',
+                url: linkUndangan
+            };
+
+            // Menggunakan Web Share API (Khusus HP / Browser Modern)
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('User membatalkan share');
+                }
+            } else {
+                // Alternatif Jika Buka di PC / Browser Lama
+                navigator.clipboard.writeText(linkUndangan);
+                munculkanToast("Link Undangan berhasil disalin!");
+            }
+        }
+
         function munculkanToast(pesan, isError = false) {
             const toast = document.getElementById("toast-notif");
             const icon = toast.querySelector("i");
@@ -523,6 +570,9 @@
             munculkanToast("Nomor Rekening Disalin!");
         }
 
+        // ==========================================
+        // 6. UI UMUM (SCROLL, MUSIK, TAB)
+        // ==========================================
         const music = document.getElementById("bg-music");
         const btnMusic = document.getElementById("btn-music");
         let isPlaying = false;
@@ -536,10 +586,11 @@
                 document.getElementById('cover').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('nav-wrapper').style.display = 'flex';
+                document.getElementById('fab-container').style.display = 'flex'; // Munculkan tombol share
                 
                 playMusic();
                 mulaiAutoScroll();
-                loadHistory(); // Mulai scrap riwayat layaknya web Modora
+                loadHistory();
             }, 1000);
         }
 
