@@ -107,6 +107,10 @@
         .event-box h3 { font-size: 1.8rem; color: var(--biru-tua); margin-bottom: 20px; }
         .event-box p { font-size: 1rem; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-box hr { border: none; height: 1px; background: rgba(212, 175, 55, 0.3); margin: 25px 0; }
+        
+        .map-container { margin-top: 25px; border-radius: 15px; overflow: hidden; border: 2px solid var(--gold); box-shadow: var(--shadow-3d); }
+        .btn-map { background: var(--biru-tua); color: var(--putih-solid); border: none; padding: 12px 25px; font-size: 0.95rem; font-weight: 600; border-radius: 15px; cursor: pointer; box-shadow: 0 5px 15px rgba(26, 60, 99, 0.3); transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 15px; text-decoration: none; }
+        .btn-map:active { transform: scale(0.98); }
 
         .countdown-container { margin-top: 40px; background: var(--putih-solid); padding: 25px 10px; border-radius: 20px; box-shadow: var(--shadow-3d); }
         .countdown-container h4 { color: var(--biru-tua); margin-bottom: 20px; font-size: 1.2rem; }
@@ -128,8 +132,13 @@
             height: 100%;
             object-fit: cover;
             border-radius: 15px;
-            box-shadow: var(--shadow-3d);
+            /* Tambahan efek shadow tebal dan stroke double (putih + gold) */
+            box-shadow: 0 10px 25px rgba(26, 60, 99, 0.25);
+            border: 4px solid var(--putih-solid);
+            outline: 1px solid var(--gold);
+            outline-offset: -1px;
             aspect-ratio: 1/1;
+            transition: transform 0.3s ease;
         }
         .gallery-grid img:first-child {
             grid-column: span 2;
@@ -195,7 +204,7 @@
     </div>
 
     <audio id="bg-music" loop>
-        <source src="musik.mp3" type="audio/mp4">
+        <source src="musik.mp4" type="audio/mp4">
     </audio>
 
     <div id="cover">
@@ -266,7 +275,15 @@
                 <hr>
                 <p><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i> <strong>Kediaman Mempelai Wanita</strong></p>
                 <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.9;">Kp. Pasirpeuteuy, RT/RW:04/06, Desa Padaluyu, Kec. Tanggeung, Kab. Cianjur</p>
+                
+                <div class="map-container">
+                    <iframe src="https://maps.app.goo.gl/cpSnEubiRU1CeUqF9" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/cpSnEubiRU1CeUqF9" target="_blank" class="btn-map">
+                    <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps
+                </a>
             </div>
+            
             <div class="countdown-container">
                 <h4>Menuju Hari Bahagia</h4>
                 <div class="countdown-row" id="timer">
@@ -524,7 +541,6 @@
         // 5. FITUR SHARE OTOMATIS & TOAST NOTIF
         // ==========================================
         async function shareUndangan() {
-            // Mengambil URL Otomatis
             const linkUndangan = window.location.href;
             
             const shareData = {
@@ -533,7 +549,6 @@
                 url: linkUndangan
             };
 
-            // Menggunakan Web Share API (Khusus HP / Browser Modern)
             if (navigator.share) {
                 try {
                     await navigator.share(shareData);
@@ -541,7 +556,6 @@
                     console.log('User membatalkan share');
                 }
             } else {
-                // Alternatif Jika Buka di PC / Browser Lama
                 navigator.clipboard.writeText(linkUndangan);
                 munculkanToast("Link Undangan berhasil disalin!");
             }
@@ -586,7 +600,7 @@
                 document.getElementById('cover').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('nav-wrapper').style.display = 'flex';
-                document.getElementById('fab-container').style.display = 'flex'; // Munculkan tombol share
+                document.getElementById('fab-container').style.display = 'flex';
                 
                 playMusic();
                 mulaiAutoScroll();
