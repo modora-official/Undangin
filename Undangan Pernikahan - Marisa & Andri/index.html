@@ -7,9 +7,15 @@
     
     <meta property="og:title" content="Undangan Pernikahan - Marisa & Andri">
     <meta property="og:description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.">
-    <meta property="og:image" itemprop="image" content="bersama.jpg">
-    <meta property="og:image:alt" content="Foto Undangan">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://undangin.biz.id/Undangan%20Pernikahan%20-%20Marisa%20&%20Andri/">
+    
+    <meta property="og:image" itemprop="image" content="https://undangin.biz.id/Undangan%20Pernikahan%20-%20Marisa%20&%20Andri/bersama.jpg">
+    <meta property="og:image:secure_url" content="https://undangin.biz.id/Undangan%20Pernikahan%20-%20Marisa%20&%20Andri/bersama.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Foto Undangan Marisa dan Andri">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,7 +114,6 @@
         .event-box p { font-size: 1rem; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-box hr { border: none; height: 1px; background: rgba(212, 175, 55, 0.3); margin: 25px 0; }
         
-        /* Tombol Buka Google Maps */
         .btn-map { background: var(--biru-tua); color: var(--putih-solid); border: none; padding: 12px 25px; font-size: 0.95rem; font-weight: 600; border-radius: 15px; cursor: pointer; box-shadow: 0 5px 15px rgba(26, 60, 99, 0.3); transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 15px; text-decoration: none; }
         .btn-map:active { transform: scale(0.98); background: #112a46; }
 
@@ -144,7 +149,7 @@
             aspect-ratio: 4/3; 
         }
 
-        /* --- HADIAH (REKENING) --- */
+        /* --- HADIAH --- */
         .rekening-wrapper { display: flex; flex-direction: column; gap: 25px; margin-top: 20px; }
         .atm-card { background: linear-gradient(135deg, #1A3C63, #0B1A2C); border-radius: 20px; padding: 25px; color: var(--putih-solid); box-shadow: 0 15px 35px rgba(0,0,0,0.2); position: relative; border: 1px solid rgba(255,255,255,0.1); width: 100%; display: flex; flex-direction: column; gap: 20px; }
         .atm-header { display: flex; justify-content: space-between; align-items: center; }
@@ -156,7 +161,7 @@
         .btn-copy-icon:active { transform: scale(0.95); background: var(--gold-terang); }
         .atm-name { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: #cbd5e1; text-align: left; }
 
-        /* --- UCAPAN (TELEGRAM) --- */
+        /* --- UCAPAN --- */
         .form-container { background: var(--putih-solid); padding: 30px 20px; border-radius: 20px; box-shadow: var(--shadow-3d); text-align: left; margin-bottom: 30px; }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--biru-tua); font-size: 0.9rem; }
@@ -172,7 +177,7 @@
         .guest-item p { font-size: 0.85rem; color: #555; line-height: 1.5; white-space: pre-wrap; }
         .status-loading { text-align: center; color: var(--gold); font-style: italic; font-size: 0.9rem; padding: 20px 0; }
 
-        /* --- BOTTOM NAVIGATION FLOATING MEWAH --- */
+        /* --- BOTTOM NAVIGATION --- */
         .nav-wrapper { position: fixed; bottom: 25px; left: 0; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; }
         .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-radius: 50px; box-shadow: 0 15px 35px rgba(26, 60, 99, 0.15), inset 0 0 10px rgba(255,255,255,0.8); border: 1px solid rgba(212, 175, 55, 0.4); width: 98%; max-width: 500px; pointer-events: auto; }
         .nav-item { text-decoration: none; color: #a0aab5; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px; border-radius: 40px; font-size: 0.7rem; font-weight: 600; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); gap: 4px; }
@@ -182,7 +187,7 @@
         .nav-item.active span { display: inline-block; }
         .nav-item.active .nav-icon { color: var(--putih-solid); }
 
-        /* Floating Action Buttons (Music & Share) */
+        /* Floating Action Buttons */
         .fab-container { position: fixed; bottom: 110px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 99; }
         .fab-btn { width: 45px; height: 45px; border-radius: 50%; background: var(--putih-solid); color: var(--biru-tua); display: flex; justify-content: center; align-items: center; box-shadow: var(--shadow-3d); cursor: pointer; font-size: 1.1rem; border: 1px solid rgba(212, 175, 55, 0.3); transition: all 0.3s; }
         .fab-btn:active { transform: scale(0.9); }
@@ -368,9 +373,6 @@
     </div>
 
     <script>
-        // ==========================================
-        // 1. PENGATURAN TANGGAL & TELEGRAM
-        // ==========================================
         const settingTanggal = "2026-06-04T08:00:00"; 
         const eventDate = new Date(settingTanggal);
         const teksTanggalOtomatis = eventDate.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -381,9 +383,6 @@
         const channelLink = "https://t.me/s/testiok97hhb";
         let lastUpdateId = null;
 
-        // ==========================================
-        // 2. KIRIM PESAN
-        // ==========================================
         async function kirimKeTelegram() {
             const nama = document.getElementById("namaPengirim").value;
             const pesan = document.getElementById("pesanPengirim").value;
@@ -422,9 +421,6 @@
             btn.disabled = false;
         }
 
-        // ==========================================
-        // 3. SISTEM BACA RIWAYAT WEB MODORA
-        // ==========================================
         async function loadHistory() {
             const wadah = document.getElementById("daftarUcapan");
             const proxies = [
@@ -467,9 +463,6 @@
             finally { initLiveUpdates(); }
         }
 
-        // ==========================================
-        // 4. LIVE UPDATE POLLING WEB MODORA
-        // ==========================================
         async function initLiveUpdates() {
             try {
                 const res = await fetch(`https://api.telegram.org/bot${botToken}/getUpdates?offset=-1&timeout=0&_=${Date.now()}`);
@@ -533,12 +526,8 @@
             if(diAwal) { wadah.prepend(item); } else { wadah.appendChild(item); }
         }
 
-        // ==========================================
-        // 5. FITUR SHARE OTOMATIS & TOAST NOTIF
-        // ==========================================
         async function shareUndangan() {
             const linkUndangan = window.location.href;
-            
             const shareData = {
                 title: 'Undangan Pernikahan - Marisa & Andri',
                 text: 'Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.',
@@ -580,9 +569,6 @@
             munculkanToast("Nomor Rekening Disalin!");
         }
 
-        // ==========================================
-        // 6. UI UMUM (SCROLL, MUSIK, TAB)
-        // ==========================================
         const music = document.getElementById("bg-music");
         const btnMusic = document.getElementById("btn-music");
         let isPlaying = false;
