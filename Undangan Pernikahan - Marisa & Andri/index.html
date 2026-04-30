@@ -107,6 +107,17 @@
         .card-3d p { font-size: 0.9rem; color: #666; line-height: 1.6; }
         .dan-icon { font-size: 2.5rem; color: var(--gold); margin: 20px 0; }
 
+        /* --- LOVE STORY TIMELINE SECTION --- */
+        .timeline { position: relative; margin: 0 auto; padding: 0; list-style: none; }
+        .timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 2px; background: rgba(212, 175, 55, 0.5); border-radius: 2px; }
+        .timeline-item { position: relative; margin-bottom: 40px; padding-left: 65px; text-align: left; }
+        .timeline-icon { position: absolute; top: 0; left: 5px; width: 40px; height: 40px; border-radius: 50%; background: var(--putih-solid); border: 2px solid var(--gold); color: var(--biru-tua); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; z-index: 1; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
+        .timeline-content { background: rgba(255, 255, 255, 0.85); padding: 25px 20px; border-radius: 20px; box-shadow: var(--shadow-3d); border: 1px solid rgba(255, 255, 255, 0.9); position: relative; }
+        .timeline-content::before { content: ''; position: absolute; top: 15px; left: -10px; border-width: 10px 10px 10px 0; border-style: solid; border-color: transparent rgba(255, 255, 255, 0.85) transparent transparent; }
+        .timeline-content h4 { color: var(--biru-tua); margin-bottom: 10px; font-size: 1.3rem; }
+        .timeline-content p { font-size: 0.9rem; line-height: 1.7; color: var(--teks-gelap); margin-bottom: 10px; }
+        .timeline-content p:last-child { margin-bottom: 0; }
+
         /* --- ACARA SECTION --- */
         .event-box { background: linear-gradient(145deg, var(--putih-solid), #f0f4f8); color: var(--teks-gelap); padding: 40px 20px; border-radius: 25px; box-shadow: var(--shadow-3d); position: relative; border: 1px solid rgba(212, 175, 55, 0.3); }
         .event-box i.main-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
@@ -177,10 +188,10 @@
         .guest-item p { font-size: 0.85rem; color: #555; line-height: 1.5; white-space: pre-wrap; }
         .status-loading { text-align: center; color: var(--gold); font-style: italic; font-size: 0.9rem; padding: 20px 0; }
 
-        /* --- BOTTOM NAVIGATION --- */
+        /* --- BOTTOM NAVIGATION (Diperbarui untuk 7 Menu) --- */
         .nav-wrapper { position: fixed; bottom: 25px; left: 0; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; }
         .bottom-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-radius: 50px; box-shadow: 0 15px 35px rgba(26, 60, 99, 0.15), inset 0 0 10px rgba(255,255,255,0.8); border: 1px solid rgba(212, 175, 55, 0.4); width: 98%; max-width: 500px; pointer-events: auto; }
-        .nav-item { text-decoration: none; color: #a0aab5; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px; border-radius: 40px; font-size: 0.7rem; font-weight: 600; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); gap: 4px; }
+        .nav-item { text-decoration: none; color: #a0aab5; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px; border-radius: 40px; font-size: 0.65rem; font-weight: 600; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); gap: 3px; }
         .nav-item span { display: none; white-space: nowrap; }
         .nav-icon { font-size: 1rem; transition: all 0.3s ease; }
         .nav-item.active { background: linear-gradient(135deg, var(--gold), var(--gold-terang)); color: var(--putih-solid); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); padding: 8px 12px; }
@@ -267,6 +278,41 @@
                 <h3 class="font-latin">Andri Setiawan</h3>
                 <p>Putra Pertama dari <br> <strong>Bapak Pe'i & Ibu Nani</strong></p>
             </div>
+        </section>
+
+        <section id="cerita" class="section section-watch">
+            <h2 class="title-3d font-latin">Kisah Cinta Kami</h2>
+            
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-comments"></i></div>
+                    <div class="timeline-content">
+                        <h4 class="font-latin">Awal Pertemuan</h4>
+                        <p>Kami bertemu dan berkenalan pada tahun 2025 di Jakarta saat bekerja, diperkenalkan oleh salah satu teman kami.</p>
+                        <p>Singkat cerita kami saling komunikasi, namun takdir sempat memisahkan kami, tetapi takdir pula yang menyatukan kami kembali.</p>
+                    </div>
+                </li>
+                
+                <li class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-ring"></i></div>
+                    <div class="timeline-content">
+                        <h4 class="font-latin">Lamaran</h4>
+                        <p>Sampai akhirnya kami kembali dan saling meyakinkan, 01 Januari 2026 kami memutuskan mengikat hubungan yang disaksikan oleh dua keluarga besar.</p>
+                    </div>
+                </li>
+                
+                <li class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-heart"></i></div>
+                    <div class="timeline-content">
+                        <h4 class="font-latin">Menikah</h4>
+                        <p>Tepat 5 bulan setelah lamaran, kami memutuskan untuk mengarungi bahtera rumah tangga pernikahan yang suci yang insyaAllah penuh keberkahan sakinah mawaddah & warahmah. Tibalah pada titik sakral dalam hubungan asmara kami.</p>
+                        <p>Atas izin dan ridho Allah, kami yakin dengan segenap hati dan rasa saling menyayangi, untuk memulai perjalanan, membangun kebahagiaan, menciptakan keharmonisan dalam satu atap yang dimulai pada 4 Juni 2026.</p>
+                        <p>Pilihan yang telah kami tetapkan semoga menjadi suatu anugerah terindah dan keberkahan dalam hidup kami. Amin Ya Rabbal Alamin.</p>
+                        <p style="margin-top: 15px; font-style: italic; color: var(--gold); font-weight: 600;">"Apa yang menjadi takdirmu akan mencari jalannya menemukannya"</p>
+                        <p style="font-size: 0.8rem; color: var(--biru-tua); font-weight: 600;">- Ali bin Abi Thalib</p>
+                    </div>
+                </li>
+            </ul>
         </section>
 
         <section id="acara" class="section section-watch">
@@ -365,6 +411,7 @@
         <div class="bottom-nav">
             <a href="#home" class="nav-item"><i class="fa-solid fa-house nav-icon"></i><span>Home</span></a>
             <a href="#profil" class="nav-item"><i class="fa-solid fa-heart nav-icon"></i><span>Profil</span></a>
+            <a href="#cerita" class="nav-item"><i class="fa-solid fa-book-open nav-icon"></i><span>Cerita</span></a>
             <a href="#acara" class="nav-item"><i class="fa-solid fa-calendar-check nav-icon"></i><span>Acara</span></a>
             <a href="#album" class="nav-item"><i class="fa-solid fa-images nav-icon"></i><span>Album</span></a>
             <a href="#hadiah" class="nav-item"><i class="fa-solid fa-gift nav-icon"></i><span>Hadiah</span></a>
