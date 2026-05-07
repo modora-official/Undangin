@@ -17,10 +17,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
@@ -38,6 +37,7 @@
                         'script': ['"Great Vibes"', 'cursive'],
                         'serif': ['"Cormorant Garamond"', 'serif'],
                         'sans': ['"Montserrat"', 'sans-serif'],
+                        'arabic': ['"Amiri"', 'serif'], /* Font khusus untuk teks Arab */
                     }
                 }
             }
@@ -149,29 +149,45 @@
             <section id="hero-section" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
                 <div class="absolute inset-0 z-0">
                     <img src="berdua.jpg" alt="Hero Image" class="w-full h-full object-cover opacity-20" onerror="this.src='https://placehold.co/1080x1920/FDFBF7/D4AF37?text=Foto+Berdua'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gold-light via-gold-light/50 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-gold-light via-gold-light/60 to-transparent"></div>
                 </div>
                 
-                <div class="z-10 text-center px-6 w-full fade-in pt-10">
-                    <p class="font-sans tracking-[0.2em] uppercase text-xs text-gray-500 mb-4">Pernikahan Kami</p>
-                    <div class="flex items-center justify-center gap-4 mb-4">
-                        <div class="h-[1px] w-12 bg-gold-primary"></div>
-                        <i class="ph ph-rings text-2xl text-gold-primary"></i>
-                        <div class="h-[1px] w-12 bg-gold-primary"></div>
+                <div class="z-10 text-center px-6 w-full fade-in pt-12">
+                    <div class="mb-8">
+                        <p class="font-arabic text-3xl text-dark-gray mb-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+                        <p class="font-serif text-sm italic text-gray-600">"Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang"</p>
                     </div>
-                    <h2 class="font-script text-6xl text-dark-gray mb-2">Karsiah</h2>
-                    <span class="font-serif text-3xl text-gold-primary italic">&</span>
-                    <h2 class="font-script text-6xl text-dark-gray mt-2 mb-8">Rohman</h2>
-                    <p class="font-serif text-xl text-gray-600 tracking-widest">31 . 05 . 2026</p>
+
+                    <p class="font-serif text-lg text-dark-gray mb-4">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                    
+                    <p class="font-sans text-xs text-gray-600 leading-relaxed mb-8 max-w-xs mx-auto">
+                        Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon ridho dan rahmat-Nya, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+                    </p>
+
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <div class="h-[1px] w-8 bg-gold-primary"></div>
+                        <i class="ph ph-rings text-2xl text-gold-primary"></i>
+                        <div class="h-[1px] w-8 bg-gold-primary"></div>
+                    </div>
+
+                    <h2 class="font-script text-5xl text-dark-gray mb-1">Karsiah</h2>
+                    <span class="font-serif text-2xl text-gold-primary italic">&</span>
+                    <h2 class="font-script text-5xl text-dark-gray mt-1 mb-6">Rohman</h2>
+                    <p class="font-serif text-lg text-gray-600 tracking-widest font-semibold border-t border-b border-gold-primary/30 py-2 inline-block">31 . 05 . 2026</p>
                 </div>
             </section>
 
-            <section id="quote-section" class="py-16 px-8 text-center bg-gold-light fade-in">
-                <i class="ph-fill ph-quotes text-3xl text-gold-primary/50 mb-6"></i>
-                <p class="font-serif text-lg md:text-xl italic text-gray-700 leading-relaxed">
-                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."
-                </p>
-                <p class="font-sans text-xs mt-4 text-gray-500 font-semibold">(QS. Ar-Rum: 21)</p>
+            <section id="quote-section" class="py-16 px-8 text-center bg-gold-light fade-in relative">
+                <i class="ph-fill ph-quotes text-3xl text-gold-primary/30 absolute top-10 left-1/2 transform -translate-x-1/2"></i>
+                <div class="relative z-10 mt-6">
+                    <p class="font-arabic text-2xl md:text-3xl text-dark-gray leading-loose mb-6">
+                        وَمِنْ ءَايَٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًا لِّتَسْكُنُوٓا۟ إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ
+                    </p>
+                    <p class="font-serif text-sm md:text-base italic text-gray-700 leading-relaxed">
+                        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+                    </p>
+                    <p class="font-sans text-xs mt-4 text-gold-dark font-bold uppercase tracking-wider">(QS. Ar-Rum: 21)</p>
+                </div>
             </section>
 
             <section id="couple-section" class="py-20 px-6 bg-white border-y border-gray-100">
@@ -308,7 +324,7 @@
             <section class="py-16 px-6 text-center bg-white relative border-b border-gray-200">
                 <div class="fade-in">
                     <p class="font-sans text-sm text-gray-600 leading-relaxed mb-8">
-                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu. Atas kehadiran dan doanya, kami ucapkan terima kasih.
                     </p>
                     <p class="font-serif text-lg text-dark-gray mb-4">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
                     <p class="font-sans text-xs text-gray-500 uppercase tracking-widest mb-4">Hormat Kami</p>
@@ -357,7 +373,6 @@
     </div>
 
     <script>
-        // 1. Core Variables
         const coverOverlay = document.getElementById('cover-overlay');
         const bgMusic = document.getElementById('bg-music');
         const audioIcon = document.getElementById('audio-icon');
@@ -369,7 +384,6 @@
         let isAutoScrolling = false;
         let scrollAnimation;
 
-        // 2. Main Initialization Logic
         function openInvitation() {
             coverOverlay.classList.add('cover-hidden');
             document.body.classList.remove('overflow-hidden');
@@ -393,18 +407,15 @@
             }, 800); 
         }
 
-        // 3. Smart Cinematic Auto-Scroll Logic
         function startAutoScroll() {
             isAutoScrolling = true;
             scrollIcon.classList.replace('ph-play', 'ph-pause');
             
-            // Matikan scroll-smooth bawaan CSS sementara agar pergerakan frame mulus
             document.documentElement.classList.remove('scroll-smooth');
             
             function scrollStep() {
                 if (!isAutoScrolling) return; 
                 
-                // Berhenti otomatis kalau sudah mentok bawah
                 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
                     stopAutoScroll();
                     return;
@@ -421,7 +432,6 @@
             isAutoScrolling = false;
             cancelAnimationFrame(scrollAnimation);
             scrollIcon.classList.replace('ph-pause', 'ph-play');
-            // Kembalikan efek smooth scroll untuk navigasi menu
             document.documentElement.classList.add('scroll-smooth');
         }
 
@@ -433,8 +443,6 @@
             }
         }
 
-        // --- SENSOR INTERUPSI MANUAL SCROLL ---
-        // Jika user menyentuh layar, memutar mouse, atau klik, auto-scroll otomatis pause
         const userInteractionEvents = ['touchstart', 'wheel', 'mousedown', 'touchmove'];
         userInteractionEvents.forEach(event => {
             window.addEventListener(event, () => {
@@ -444,7 +452,6 @@
             }, { passive: true });
         });
 
-        // 4. Audio Control Logic
         function toggleAudio() {
             if (isPlaying) {
                 bgMusic.pause();
@@ -458,7 +465,6 @@
             isPlaying = !isPlaying;
         }
 
-        // 5. Share API Logic
         function shareInvitation() {
             const shareData = {
                 title: 'Undangan Pernikahan: Karsiah & Rohman',
@@ -474,8 +480,7 @@
             }
         }
 
-        // 6. Countdown Timer Logic (31 Mei 2026 09:00:00)
-        const countDownDate = new Date("May 31, 2026 09:00:00").getTime();
+        const countDownDate = new Date("May 31, 2026 08:00:00").getTime();
         const timerInterval = setInterval(function() {
             const now = new Date().getTime();
             const distance = countDownDate - now;
@@ -496,7 +501,6 @@
             document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }, 1000);
 
-        // 7. Copy Rekening / Text Logic
         function copyRekening(text) {
             const el = document.createElement('textarea');
             el.value = text;
@@ -522,7 +526,6 @@
             }, 3000);
         }
 
-        // 8. Scroll Animation & Bottom Nav Auto-Highlight
         function observeElements() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
