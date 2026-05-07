@@ -365,7 +365,7 @@
 
         <div id="toast" class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-dark-gray/90 backdrop-blur-md text-white px-6 py-3 rounded-full shadow-2xl transition-opacity duration-300 opacity-0 pointer-events-none z-50 font-sans text-sm flex items-center gap-2 border border-white/10">
             <i class="ph-fill ph-check-circle text-gold-primary text-xl"></i>
-            <span id="toast-msg" class="font-semibold tracking-wide">Berhasil disalin!</span>
+            <span id="toast-msg" class="font-semibold tracking-wide">Teks undangan berhasil disalin!</span>
         </div>
 
     </div>
@@ -466,15 +466,44 @@
         function shareInvitation() {
             const shareData = {
                 title: 'Undangan Pernikahan: Karsiah & Rohman',
-                text: 'Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami.',
-                url: window.location.href
+                text: `بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
+
+Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara putra-putri kami.
+
+Tanpa mengurangi rasa hormat, melalui pesan ini kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara pernikahan kami:
+
+*Karsiah & Rohman*
+
+Insya Allah, acara resepsi akan di selenggarakan pada:
+🗓 *Hari, Tanggal:* Minggu, 31 Mei 2026
+⏰ *Waktu:* 08:00 WIB - Selesai
+📍 *Tempat:* Halaman Masjid Jami Al I'tihad
+(Kp. Tarisi RT 05 RW 03, Desa Paja, Kec. Sajira, Kab. Lebak, Banten)
+
+Untuk informasi lebih lengkap mengenai detail acara dan penunjuk arah lokasi, silakan buka tautan undangan digital kami di bawah ini:
+🔗 https://undangin.biz.id/karsiah-&-rohman
+
+(Mohon klik tautan di atas untuk membuka undangan)
+
+Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+
+بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِى خَيْرٍ
+"Semoga Allah memberkahimu di waktu bahagia dan memberkahimu di waktu susah, serta semoga Allah menyatukan kalian berdua dalam kebaikan."
+
+Atas kehadiran serta doa restu yang diberikan, kami ucapkan terima kasih yang sebesar-besarnya. 
+
+وَ السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
+
+Hormat kami,
+*Karsiah & Rohman beserta Keluarga*`
             };
 
             if (navigator.share) {
                 navigator.share(shareData).catch(console.error);
             } else {
-                copyRekening(window.location.href);
-                showToast("Link undangan berhasil disalin!");
+                copyRekening(shareData.text);
+                showToast("Teks undangan berhasil disalin!");
             }
         }
 
@@ -511,7 +540,7 @@
             document.execCommand('copy');
             document.body.removeChild(el);
             
-            showToast("Nomor rekening berhasil disalin!");
+            showToast("Teks undangan berhasil disalin!");
         }
 
         function showToast(message) {
