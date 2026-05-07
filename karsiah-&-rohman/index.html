@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>Undangan Pernikahan: Karsiah & Rohman</title>
+    <meta name="description" content="Undangan Pernikahan Karsiah & Rohman - 31 Mei 2026">
+    <meta property="og:title" content="Undangan Pernikahan: Karsiah & Rohman">
+    <meta property="og:description" content="Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami.">
+    <meta property="og:image" content="bersama.jpg">
+    <meta property="og:url" content="#">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" type="image/jpeg" href="bersama.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold-light': '#FDFBF7',
+                        'gold-primary': '#D4AF37',
+                        'gold-dark': '#9A7B2C',
+                        'dark-gray': '#1A1A1A', 
+                        'dark-gray-secondary': '#2C2C2C',
+                    },
+                    fontFamily: {
+                        'script': ['"Great Vibes"', 'cursive'],
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles & Resets */
+        body {
+            background-color: #000000; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Menghilangkan highlight saat klik di mobile */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            outline: none !important;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #1A1A1A; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+
+        /* Utility Classes */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        }
+        
+        .arch-image {
+            border-radius: 10rem 10rem 0 0;
+            object-fit: cover;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .spin-slow {
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 2s infinite;
+        }
+
+        /* Cover Overlay Transitions */
+        #cover-overlay {
+            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s ease-in-out;
+        }
+        .cover-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* 3D Soft Shadowing */
+        .shadow-3d {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="overflow-hidden font-sans text-dark-gray-secondary">
+
+    <audio id="bg-music" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="relative w-full max-w-md mx-auto bg-gold-light shadow-2xl min-h-screen overflow-x-hidden">
+
+        <div id="cover-overlay" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-dark-gray text-white w-full max-w-md mx-auto left-0 right-0">
+            <div class="absolute inset-0 z-0">
+                <img src="berdua.jpg" alt="Karsiah & Rohman" class="w-full h-full object-cover opacity-40" onerror="this.src='https://placehold.co/1080x1920/1A1A1A/D4AF37?text=Foto+Berdua'">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-dark-gray/60 to-dark-gray"></div>
+            </div>
+
+            <div class="z-10 flex flex-col items-center text-center px-6 mt-16">
+                <p class="font-serif tracking-[0.3em] uppercase text-sm mb-4 text-gray-300">The Wedding Of</p>
+                <h1 class="font-script text-6xl md:text-7xl text-gold-gradient mb-6 drop-shadow-lg">Karsiah & Rohman</h1>
+                <p class="font-sans text-sm font-light mb-10 text-gray-200">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                
+                <button onclick="openInvitation()" class="group relative px-8 py-3 rounded-full bg-gold-gradient text-dark-gray font-bold tracking-widest uppercase text-xs transition-transform hover:scale-105 animate-pulse-ring flex items-center gap-2 shadow-3d">
+                    <i class="ph ph-envelope-open text-lg"></i>
+                    Buka Undangan
+                </button>
+            </div>
+        </div>
+
+        <main id="main-content" class="w-full pb-28"> 
+            
+            <section id="hero-section" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="berdua.jpg" alt="Hero Image" class="w-full h-full object-cover opacity-20" onerror="this.src='https://placehold.co/1080x1920/FDFBF7/D4AF37?text=Foto+Berdua'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gold-light via-gold-light/50 to-transparent"></div>
+                </div>
+                
+                <div class="z-10 text-center px-6 w-full fade-in pt-10">
+                    <p class="font-sans tracking-[0.2em] uppercase text-xs text-gray-500 mb-4">Pernikahan Kami</p>
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <div class="h-[1px] w-12 bg-gold-primary"></div>
+                        <i class="ph ph-rings text-2xl text-gold-primary"></i>
+                        <div class="h-[1px] w-12 bg-gold-primary"></div>
+                    </div>
+                    <h2 class="font-script text-6xl text-dark-gray mb-2">Karsiah</h2>
+                    <span class="font-serif text-3xl text-gold-primary italic">&</span>
+                    <h2 class="font-script text-6xl text-dark-gray mt-2 mb-8">Rohman</h2>
+                    <p class="font-serif text-xl text-gray-600 tracking-widest">31 . 05 . 2026</p>
+                </div>
+            </section>
+
+            <section id="quote-section" class="py-16 px-8 text-center bg-gold-light fade-in">
+                <i class="ph-fill ph-quotes text-3xl text-gold-primary/50 mb-6"></i>
+                <p class="font-serif text-lg md:text-xl italic text-gray-700 leading-relaxed">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."
+                </p>
+                <p class="font-sans text-xs mt-4 text-gray-500 font-semibold">(QS. Ar-Rum: 21)</p>
+            </section>
+
+            <section id="couple-section" class="py-20 px-6 bg-white border-y border-gray-100">
+                <div class="text-center mb-12 fade-in">
+                    <h3 class="font-serif text-3xl font-bold text-dark-gray mb-2">Mempelai</h3>
+                    <div class="h-[2px] w-16 bg-gold-primary mx-auto"></div>
+                </div>
+
+                <div class="flex flex-col gap-16">
+                    <div class="flex flex-col items-center text-center fade-in">
+                        <div class="w-48 h-64 p-2 border border-gold-primary rounded-[10rem] rounded-b-none mb-6 relative">
+                            <img src="cewek.jpg" alt="Karsiah" class="w-full h-full arch-image" onerror="this.src='https://placehold.co/400x600/FDFBF7/D4AF37?text=Foto+Cewek'">
+                            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-5 py-1 rounded-full border border-gold-primary/30 shadow-md">
+                                <span class="font-sans text-[10px] uppercase tracking-widest text-gold-dark font-bold">Mempelai Wanita</span>
+                            </div>
+                        </div>
+                        <h4 class="font-script text-5xl text-dark-gray mb-2">Karsiah</h4>
+                        <p class="font-sans text-sm text-gray-600 leading-relaxed">
+                            Putri Ketiga dari<br>
+                            <span class="font-semibold text-dark-gray">Bapak Ibon & Ibu Ade</span>
+                        </p>
+                    </div>
+
+                    <div class="flex justify-center text-gold-primary fade-in">
+                        <i class="ph-fill ph-heart text-4xl animate-pulse drop-shadow-md"></i>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center fade-in">
+                        <div class="w-48 h-64 p-2 border border-gold-primary rounded-[10rem] rounded-b-none mb-6 relative">
+                            <img src="cowok.jpg" alt="Rohman" class="w-full h-full arch-image" onerror="this.src='https://placehold.co/400x600/FDFBF7/D4AF37?text=Foto+Cowok'">
+                            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-5 py-1 rounded-full border border-gold-primary/30 shadow-md">
+                                <span class="font-sans text-[10px] uppercase tracking-widest text-gold-dark font-bold">Mempelai Pria</span>
+                            </div>
+                        </div>
+                        <h4 class="font-script text-5xl text-dark-gray mb-2">Rohman</h4>
+                        <p class="font-sans text-sm text-gray-600 leading-relaxed">
+                            Putra dari<br>
+                            <span class="font-semibold text-dark-gray">Alm. Bapak Kamsuri & Ibu Mariam</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="event-section" class="py-20 px-6 bg-dark-gray text-white relative">
+                <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 20px 20px;"></div>
+                
+                <div class="relative z-10 text-center mb-12 fade-in">
+                    <h3 class="font-serif text-3xl font-bold text-gold-primary mb-2">Pelaksanaan Acara</h3>
+                    <div class="h-[2px] w-16 bg-gold-primary mx-auto"></div>
+                </div>
+
+                <div class="relative z-10 flex justify-center gap-3 mb-16 fade-in">
+                    <div class="flex flex-col items-center bg-white/5 backdrop-blur-md p-3 rounded-xl border border-gold-primary/20 w-[72px] shadow-lg">
+                        <span id="days" class="font-serif text-3xl font-semibold text-gold-primary">00</span>
+                        <span class="font-sans text-[9px] uppercase tracking-wider text-gray-300 mt-1">Hari</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/5 backdrop-blur-md p-3 rounded-xl border border-gold-primary/20 w-[72px] shadow-lg">
+                        <span id="hours" class="font-serif text-3xl font-semibold text-gold-primary">00</span>
+                        <span class="font-sans text-[9px] uppercase tracking-wider text-gray-300 mt-1">Jam</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/5 backdrop-blur-md p-3 rounded-xl border border-gold-primary/20 w-[72px] shadow-lg">
+                        <span id="minutes" class="font-serif text-3xl font-semibold text-gold-primary">00</span>
+                        <span class="font-sans text-[9px] uppercase tracking-wider text-gray-300 mt-1">Menit</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/5 backdrop-blur-md p-3 rounded-xl border border-gold-primary/20 w-[72px] shadow-lg">
+                        <span id="seconds" class="font-serif text-3xl font-semibold text-gold-primary">00</span>
+                        <span class="font-sans text-[9px] uppercase tracking-wider text-gray-300 mt-1">Detik</span>
+                    </div>
+                </div>
+
+                <div class="relative z-10 bg-dark-gray-secondary text-white p-8 rounded-2xl shadow-3d border border-white/10 fade-in max-w-sm mx-auto">
+                    <div class="flex justify-center mb-4">
+                        <i class="ph ph-calendar-check text-4xl text-gold-primary"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl font-bold text-center mb-2">Akad & Resepsi</h4>
+                    <p class="font-sans text-center text-sm font-semibold tracking-widest text-gray-400 mb-6 border-b border-white/10 pb-4">MINGGU, 31 MEI 2026</p>
+                    
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-2 bg-white/5 rounded-lg text-gold-primary"><i class="ph ph-clock text-xl"></i></div>
+                        <div>
+                            <p class="font-sans text-sm font-semibold text-gray-200">Pukul</p>
+                            <p class="font-sans text-sm text-gray-400">09:00 WIB - Selesai</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 mb-8">
+                        <div class="p-2 bg-white/5 rounded-lg text-gold-primary"><i class="ph ph-map-pin text-xl"></i></div>
+                        <div>
+                            <p class="font-sans text-sm font-semibold text-gray-200">Tempat</p>
+                            <p class="font-sans text-sm text-gray-400 mt-1 leading-relaxed">
+                                Halaman Masjid Jami Al I'tihad<br>
+                                Kp. Tarisi RT 05 RW 03, Desa Paja,<br>
+                                Kec. Sajira, Kab. Lebak, Banten.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.app.goo.gl/mfmW93eGX5eLXbcw9" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-full bg-gold-gradient text-dark-gray font-sans text-sm font-bold tracking-wider transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
+                        <i class="ph-bold ph-navigation-arrow"></i>
+                        Buka Google Maps
+                    </a>
+                </div>
+            </section>
+
+            <section id="gift-section" class="py-20 px-6 bg-gold-light">
+                <div class="text-center mb-10 fade-in">
+                    <h3 class="font-serif text-3xl font-bold text-dark-gray mb-2">Amplop Digital</h3>
+                    <div class="h-[2px] w-16 bg-gold-primary mx-auto mb-4"></div>
+                    <p class="font-sans text-sm text-gray-600">
+                        Kehadiran serta doa restu Anda merupakan hadiah tak ternilai. Namun jika bermaksud memberikan tanda kasih, dapat disalurkan melalui:
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in relative overflow-hidden max-w-sm mx-auto">
+                    <div class="absolute -right-4 -top-4 text-gold-primary/10">
+                        <i class="ph-fill ph-bank text-9xl"></i>
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <p class="font-serif text-xl font-bold text-dark-gray mb-1">Bank BCA</p>
+                        <p class="font-sans text-gray-500 text-sm mb-4">Atas Nama: <span class="font-semibold text-dark-gray">ROHMAN</span></p>
+                        
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
+                            <span id="rekening-bca" class="font-sans text-lg font-bold tracking-wider text-dark-gray">8881324059</span>
+                            <button onclick="copyRekening('8881324059')" class="px-4 py-2 bg-dark-gray text-white rounded-lg hover:bg-gold-primary transition-colors flex items-center gap-2 text-xs font-semibold shadow-md">
+                                <i class="ph-bold ph-copy"></i>
+                                Salin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 px-6 text-center bg-white relative border-b border-gray-200">
+                <div class="fade-in">
+                    <p class="font-sans text-sm text-gray-600 leading-relaxed mb-8">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+                    </p>
+                    <p class="font-serif text-lg text-dark-gray mb-4">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                    <p class="font-sans text-xs text-gray-500 uppercase tracking-widest mb-4">Hormat Kami</p>
+                    <h2 class="font-script text-5xl text-dark-gray">Karsiah & Rohman</h2>
+                </div>
+            </section>
+
+        </main>
+
+        <div id="fab-container" class="fixed bottom-[85px] right-4 md:right-[calc(50%-13rem)] z-40 flex flex-col gap-3 transition-all duration-700 opacity-0 pointer-events-none translate-y-10">
+            <button onclick="toggleAutoScroll()" class="w-12 h-12 bg-dark-gray/90 backdrop-blur-md border border-white/20 rounded-full shadow-3d flex items-center justify-center text-gold-primary transition-transform hover:scale-110 active:scale-95">
+                <i id="scroll-icon" class="ph-fill ph-pause text-xl"></i>
+            </button>
+            <button onclick="shareInvitation()" class="w-12 h-12 bg-dark-gray/90 backdrop-blur-md border border-white/20 rounded-full shadow-3d flex items-center justify-center text-gold-primary transition-transform hover:scale-110 active:scale-95">
+                <i class="ph-fill ph-share-network text-xl"></i>
+            </button>
+            <button onclick="toggleAudio()" class="w-12 h-12 bg-gold-gradient border border-gold-light rounded-full shadow-3d flex items-center justify-center text-dark-gray transition-transform hover:scale-110 active:scale-95">
+                <i id="audio-icon" class="ph-fill ph-speaker-high text-xl spin-slow"></i>
+            </button>
+        </div>
+
+        <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto bg-dark-gray/95 backdrop-blur-xl border-t border-white/10 z-40 transition-transform duration-700 translate-y-full flex justify-around items-center py-3 px-2 rounded-t-2xl shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+            <a href="#hero-section" class="nav-item flex flex-col items-center gap-1 text-gold-primary transition-all scale-105">
+                <i class="ph-fill ph-house text-2xl"></i>
+                <span class="text-[9px] font-sans font-bold uppercase tracking-wider">Home</span>
+            </a>
+            <a href="#couple-section" class="nav-item flex flex-col items-center gap-1 text-gray-500 transition-all hover:text-gold-primary">
+                <i class="ph-fill ph-users-three text-2xl"></i>
+                <span class="text-[9px] font-sans font-bold uppercase tracking-wider">Mempelai</span>
+            </a>
+            <a href="#event-section" class="nav-item flex flex-col items-center gap-1 text-gray-500 transition-all hover:text-gold-primary">
+                <i class="ph-fill ph-calendar-heart text-2xl"></i>
+                <span class="text-[9px] font-sans font-bold uppercase tracking-wider">Acara</span>
+            </a>
+            <a href="#gift-section" class="nav-item flex flex-col items-center gap-1 text-gray-500 transition-all hover:text-gold-primary">
+                <i class="ph-fill ph-gift text-2xl"></i>
+                <span class="text-[9px] font-sans font-bold uppercase tracking-wider">Hadiah</span>
+            </a>
+        </nav>
+
+        <div id="toast" class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-dark-gray/90 backdrop-blur-md text-white px-6 py-3 rounded-full shadow-2xl transition-opacity duration-300 opacity-0 pointer-events-none z-50 font-sans text-sm flex items-center gap-2 border border-white/10">
+            <i class="ph-fill ph-check-circle text-gold-primary text-xl"></i>
+            <span id="toast-msg" class="font-semibold tracking-wide">Berhasil disalin!</span>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. Core Variables
+        const coverOverlay = document.getElementById('cover-overlay');
+        const bgMusic = document.getElementById('bg-music');
+        const audioIcon = document.getElementById('audio-icon');
+        const fabContainer = document.getElementById('fab-container');
+        const bottomNav = document.getElementById('bottom-nav');
+        const scrollIcon = document.getElementById('scroll-icon');
+        
+        let isPlaying = false;
+        let isAutoScrolling = false;
+        let scrollAnimation;
+
+        // 2. Main Initialization Logic
+        function openInvitation() {
+            coverOverlay.classList.add('cover-hidden');
+            document.body.classList.remove('overflow-hidden');
+            observeElements();
+
+            fabContainer.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+            bottomNav.classList.remove('translate-y-full');
+
+            bgMusic.play().then(() => {
+                isPlaying = true;
+            }).catch(e => {
+                console.log("Autoplay dicegah browser.");
+                audioIcon.classList.replace('ph-speaker-high', 'ph-speaker-slash');
+                audioIcon.classList.remove('spin-slow');
+            });
+
+            window.scrollTo(0, 0);
+
+            setTimeout(() => {
+                startAutoScroll();
+            }, 800); 
+        }
+
+        // 3. Smart Cinematic Auto-Scroll Logic
+        function startAutoScroll() {
+            isAutoScrolling = true;
+            scrollIcon.classList.replace('ph-play', 'ph-pause');
+            
+            // Matikan scroll-smooth bawaan CSS sementara agar pergerakan frame mulus
+            document.documentElement.classList.remove('scroll-smooth');
+            
+            function scrollStep() {
+                if (!isAutoScrolling) return; 
+                
+                // Berhenti otomatis kalau sudah mentok bawah
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+                    stopAutoScroll();
+                    return;
+                }
+                
+                window.scrollBy(0, 1); 
+                scrollAnimation = requestAnimationFrame(scrollStep);
+            }
+            
+            scrollAnimation = requestAnimationFrame(scrollStep);
+        }
+
+        function stopAutoScroll() {
+            isAutoScrolling = false;
+            cancelAnimationFrame(scrollAnimation);
+            scrollIcon.classList.replace('ph-pause', 'ph-play');
+            // Kembalikan efek smooth scroll untuk navigasi menu
+            document.documentElement.classList.add('scroll-smooth');
+        }
+
+        function toggleAutoScroll() {
+            if (isAutoScrolling) {
+                stopAutoScroll();
+            } else {
+                startAutoScroll();
+            }
+        }
+
+        // --- SENSOR INTERUPSI MANUAL SCROLL ---
+        // Jika user menyentuh layar, memutar mouse, atau klik, auto-scroll otomatis pause
+        const userInteractionEvents = ['touchstart', 'wheel', 'mousedown', 'touchmove'];
+        userInteractionEvents.forEach(event => {
+            window.addEventListener(event, () => {
+                if (isAutoScrolling) {
+                    stopAutoScroll();
+                }
+            }, { passive: true });
+        });
+
+        // 4. Audio Control Logic
+        function toggleAudio() {
+            if (isPlaying) {
+                bgMusic.pause();
+                audioIcon.classList.replace('ph-speaker-high', 'ph-speaker-slash');
+                audioIcon.classList.remove('spin-slow');
+            } else {
+                bgMusic.play();
+                audioIcon.classList.replace('ph-speaker-slash', 'ph-speaker-high');
+                audioIcon.classList.add('spin-slow');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 5. Share API Logic
+        function shareInvitation() {
+            const shareData = {
+                title: 'Undangan Pernikahan: Karsiah & Rohman',
+                text: 'Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami.',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(console.error);
+            } else {
+                copyRekening(window.location.href);
+                showToast("Link undangan berhasil disalin!");
+            }
+        }
+
+        // 6. Countdown Timer Logic (31 Mei 2026 09:00:00)
+        const countDownDate = new Date("May 31, 2026 09:00:00").getTime();
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        // 7. Copy Rekening / Text Logic
+        function copyRekening(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            showToast("Nomor rekening berhasil disalin!");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = message;
+            toast.classList.remove('opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // 8. Scroll Animation & Bottom Nav Auto-Highlight
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('text-gold-primary', 'scale-105');
+                    item.classList.add('text-gray-500');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.remove('text-gray-500');
+                        item.classList.add('text-gold-primary', 'scale-105');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
